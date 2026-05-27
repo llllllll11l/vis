@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>房价—人口耦合关系分析</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+      background: #f4f7fb;
+      color: #1f2937;
+      letter-spacing: 0.5px;
+    }
+
+    .page {
+      width: 100vw;
+      min-height: 100vh;
+      padding: 22px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .title h1 {
+      margin: 0;
+      font-size: 28px;
+      letter-spacing: 2px;
+    }
+
+    .filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .btn {
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      background: #e2e8f0;
+      color: #334155;
+      cursor: pointer;
+      font-size: 13px;
+      transition: 0.2s;
+      letter-spacing: 1px;
+    }
+
+    .btn.active {
+      background: #2563eb;
+      color: #ffffff;
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1.72fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 16px;
+      height: calc(100vh - 100px);
+      min-height: 820px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 20px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      overflow: hidden;
+    }
+
+    .main-card {
+      grid-row: 1 / 3;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-title {
+      padding: 18px 22px 10px;
+    }
+
+    .card-title h2 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: 1.5px;
+      line-height: 1.4;
+    }
+
+    #scatterChart {
+      flex: 1;
+      min-height: 700px;
+    }
+
+    #trendChart {
+      width: 100%;
+      height: calc(100% - 58px);
+      min-height: 300px;
+    }
+
+    .profile-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .profile-head {
+      padding: 0 22px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .city-name {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 3px;
+    }
+
+    .city-type {
+      padding: 6px 12px;
+      border-radius: 18px;
+      background: #eff6ff;
+      color: #2563eb;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .rings {
+      padding: 8px 20px 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      flex: 1;
+      align-content: center;
+    }
+
+    .ring-item {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 14px;
+      display: grid;
+      grid-template-columns: 62px 1fr;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .ring {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at center, #ffffff 55%, transparent 56%),
+        conic-gradient(#2563eb 0deg, #e2e8f0 0deg);
+    }
+
+    .ring span {
+      font-size: 12px;
+      font-weight: 800;
+      color: #1f2937;
+    }
+
+    .ring-info .label {
+      font-size: 12px;
+      color: #64748b;
+      margin-bottom: 6px;
+    }
+
+    .ring-info .value {
+      font-size: 18px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    @media (max-width: 1100px) {
+      .header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+
+      .main-card {
+        grid-row: auto;
+      }
+
+      #scatterChart {
+        height: 620px;
+      }
+
+      #trendChart {
+        height: 360px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <div class="header">
+      <div class="title">
+        <h1>房价—人口耦合关系分析</h1>
+      </div>
+
+      <div class="filters" id="regionFilters"></div>
+    </div>
+
+    <div class="layout">
+      <div class="card main-card">
+        <div class="card-title">
+          <h2>房价—人口四象限耦合散点图</h2>
+        </div>
+        <div id="scatterChart"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <h2>城市房价—人口双轴趋势图</h2>
+        </div>
+        <div id="trendChart"></div>
+      </div>
+
+      <div class="card profile-card">
+        <div class="card-title">
+          <h2>城市画像环形图</h2>
+        </div>
+
+        <div class="profile-head">
+          <div class="city-name" id="profileCity">深圳</div>
+          <div class="city-type" id="profileType">强吸引型</div>
+        </div>
+
+        <div class="rings">
+          <div class="ring-item">
+            <div class="ring" id="ringPrice"><span>82</span></div>
+            <div class="ring-info">
+              <div class="label">房价水平</div>
+              <div class="value" id="valPrice">28000</div>
+            </div>
+          </div>
+
+          <div class="ring-item">
+            <div class="ring" id="ringHouseGrowth"><span>64</span></div>
+            <div class="ring-info">
+              <div class="label">房价涨幅</div>
+              <div class="value" id="valHouseGrowth">+1.9%</div>
+            </div>
+          </div>
+
+          <div class="ring-item">
+            <div class="ring" id="ringPop"><span>78</span></div>
+            <div class="ring-info">
+              <div class="label">人口增量</div>
+              <div class="value" id="valPop">+22万</div>
+            </div>
+          </div>
+
+          <div class="ring-item">
+            <div class="ring" id="ringPopRate"><span>72</span></div>
+            <div class="ring-info">
+              <div class="label">人口增长率</div>
+              <div class="value" id="valPopRate">+1.25%</div>
+            </div>
+          </div>
+
+          <div class="ring-item">
+            <div class="ring" id="ringGDP"><span>86</span></div>
+            <div class="ring-info">
+              <div class="label">经济规模</div>
+              <div class="value" id="valGDP">3.46万亿</div>
+            </div>
+          </div>
+
+          <div class="ring-item">
+            <div class="ring" id="ringUrban"><span>92</span></div>
+            <div class="ring-info">
+              <div class="label">城镇化率</div>
+              <div class="value" id="valUrban">99.0%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const years = [2018, 2019, 2020, 2021, 2022, 2023, 2024];
+
+    const cityData = {
+      "北京": {
+        region: "东部",
+        gdp: 4.37,
+        population: 2186,
+        urbanRate: 87.8,
+        price: [60000, 62500, 65000, 68000, 70000, 71500, 73500],
+        popGrowth: [-2, -1, 1, 0, -3, -2, 1]
+      },
+      "上海": {
+        region: "东部",
+        gdp: 4.72,
+        population: 2487,
+        urbanRate: 89.3,
+        price: [58000, 61000, 64000, 67000, 69000, 70500, 72800],
+        popGrowth: [4, 5, 8, 6, 3, 4, 6]
+      },
+      "深圳": {
+        region: "东部",
+        gdp: 3.46,
+        population: 1779,
+        urbanRate: 99.0,
+        price: [52000, 56000, 61000, 66000, 67500, 67000, 68300],
+        popGrowth: [18, 24, 30, 28, 20, 18, 22]
+      },
+      "广州": {
+        region: "东部",
+        gdp: 3.04,
+        population: 1883,
+        urbanRate: 86.5,
+        price: [31000, 32500, 34800, 36500, 37200, 38000, 39200],
+        popGrowth: [20, 25, 30, 27, 22, 20, 24]
+      },
+      "杭州": {
+        region: "东部",
+        gdp: 2.00,
+        population: 1252,
+        urbanRate: 84.2,
+        price: [27000, 29000, 31800, 34500, 36000, 37200, 38600],
+        popGrowth: [18, 25, 32, 30, 26, 25, 28]
+      },
+      "南京": {
+        region: "东部",
+        gdp: 1.75,
+        population: 954,
+        urbanRate: 87.1,
+        price: [24000, 25200, 26800, 28200, 29000, 29600, 30500],
+        popGrowth: [8, 10, 13, 12, 9, 8, 10]
+      },
+      "成都": {
+        region: "西部",
+        gdp: 2.20,
+        population: 2140,
+        urbanRate: 79.8,
+        price: [13500, 14500, 15800, 17200, 18100, 18800, 19800],
+        popGrowth: [12, 16, 20, 18, 15, 14, 18]
+      },
+      "重庆": {
+        region: "西部",
+        gdp: 3.01,
+        population: 3213,
+        urbanRate: 71.5,
+        price: [10500, 11200, 12100, 13000, 13400, 13800, 14400],
+        popGrowth: [6, 8, 11, 14, 12, 13, 15]
+      },
+      "西安": {
+        region: "西部",
+        gdp: 1.20,
+        population: 1316,
+        urbanRate: 80.1,
+        price: [11200, 12100, 13200, 14200, 14800, 15100, 15800],
+        popGrowth: [8, 10, 15, 18, 13, 12, 14]
+      },
+      "武汉": {
+        region: "中部",
+        gdp: 2.00,
+        population: 1377,
+        urbanRate: 84.7,
+        price: [14500, 15000, 15600, 16400, 16800, 17000, 17600],
+        popGrowth: [-8, -6, 4, 6, 3, 4, 7]
+      },
+      "长沙": {
+        region: "中部",
+        gdp: 1.43,
+        population: 1051,
+        urbanRate: 83.6,
+        price: [9800, 10300, 10800, 11400, 11800, 12100, 12600],
+        popGrowth: [6, 9, 12, 14, 10, 9, 11]
+      },
+      "郑州": {
+        region: "中部",
+        gdp: 1.36,
+        population: 1301,
+        urbanRate: 79.6,
+        price: [12500, 12800, 13100, 13400, 13200, 12900, 13050],
+        popGrowth: [-6, -5, -2, 1, -4, -5, -3]
+      },
+      "合肥": {
+        region: "中部",
+        gdp: 1.27,
+        population: 963,
+        urbanRate: 84.0,
+        price: [11800, 12500, 13300, 14200, 14800, 15300, 16000],
+        popGrowth: [5, 7, 10, 12, 9, 8, 10]
+      },
+      "沈阳": {
+        region: "东北",
+        gdp: 0.81,
+        population: 911,
+        urbanRate: 84.5,
+        price: [10500, 10800, 11000, 11200, 10900, 10600, 10500],
+        popGrowth: [-10, -12, -14, -15, -16, -15, -14]
+      },
+      "长春": {
+        region: "东北",
+        gdp: 0.70,
+        population: 906,
+        urbanRate: 66.8,
+        price: [9200, 9400, 9550, 9600, 9400, 9300, 9250],
+        popGrowth: [-8, -9, -11, -12, -13, -13, -12]
+      },
+      "哈尔滨": {
+        region: "东北",
+        gdp: 0.55,
+        population: 939,
+        urbanRate: 71.0,
+        price: [9000, 9100, 9150, 9200, 9000, 8800, 8700],
+        popGrowth: [-15, -16, -18, -20, -22, -21, -20]
+      }
+    };
+
+    const regionColors = {
+      "东部": "#dc2626",
+      "中部": "#f97316",
+      "西部": "#16a34a",
+      "东北": "#2563eb"
+    };
+
+    let currentRegion = "全部";
+    let selectedCity = "深圳";
+
+    const scatterChart = echarts.init(document.getElementById("scatterChart"));
+    const trendChart = echarts.init(document.getElementById("trendChart"));
+
+    function houseGrowth(city) {
+      const arr = cityData[city].price;
+      return ((arr[arr.length - 1] - arr[arr.length - 2]) / arr[arr.length - 2]) * 100;
+    }
+
+    function popGrowthRate(city) {
+      const obj = cityData[city];
+      const lastGrowth = obj.popGrowth[obj.popGrowth.length - 1];
+      return lastGrowth / obj.population * 100;
+    }
+
+    function formatPct(v) {
+      return (v > 0 ? "+" : "") + v.toFixed(2) + "%";
+    }
+
+    function cityType(city) {
+      const x = popGrowthRate(city);
+      const y = houseGrowth(city);
+
+      if (x > 0 && y > 0) return "强吸引型";
+      if (x < 0 && y > 0) return "价格支撑型";
+      if (x < 0 && y <= 0) return "收缩压力型";
+      if (x > 0 && y <= 0) return "人口承接型";
+      return "平稳型";
+    }
+
+    function renderFilters() {
+      const container = document.getElementById("regionFilters");
+      const regions = ["全部", "东部", "中部", "西部", "东北"];
+      container.innerHTML = "";
+
+      regions.forEach(region => {
+        const btn = document.createElement("button");
+        btn.className = "btn" + (region === currentRegion ? " active" : "");
+        btn.innerText = region;
+        btn.onclick = () => {
+          currentRegion = region;
+          renderFilters();
+          renderScatter();
+        };
+        container.appendChild(btn);
+      });
+    }
+
+    function getScatterData() {
+      return Object.keys(cityData)
+        .filter(city => currentRegion === "全部" || cityData[city].region === currentRegion)
+        .map(city => {
+          const obj = cityData[city];
+          return {
+            name: city,
+            value: [
+              popGrowthRate(city),
+              houseGrowth(city),
+              obj.gdp,
+              obj.population
+            ],
+            region: obj.region,
+            itemStyle: {
+              color: city === selectedCity ? "#111827" : regionColors[obj.region],
+              borderColor: city === selectedCity ? "#facc15" : "#ffffff",
+              borderWidth: city === selectedCity ? 4 : 1
+            }
+          };
+        });
+    }
+
+    function renderScatter() {
+      const scatterData = getScatterData();
+
+      const option = {
+        grid: {
+          left: 74,
+          right: 52,
+          top: 64,
+          bottom: 68
+        },
+        tooltip: {
+          trigger: "item",
+          backgroundColor: "rgba(15,23,42,0.92)",
+          borderColor: "transparent",
+          textStyle: {
+            color: "#fff"
+          },
+          formatter: function(params) {
+            const city = params.name;
+            const obj = cityData[city];
+            return `${city}<br/>
+              区域：${obj.region}<br/>
+              人口增长率：${formatPct(params.value[0])}<br/>
+              房价增长率：${formatPct(params.value[1])}<br/>
+              GDP：${obj.gdp} 万亿元<br/>
+              类型：${cityType(city)}`;
+          }
+        },
+        legend: {
+          top: 14,
+          right: 24,
+          data: ["东部", "中部", "西部", "东北"],
+          textStyle: {
+            color: "#475569"
+          }
+        },
+        xAxis: {
+          type: "value",
+          name: "人口增减率",
+          nameLocation: "middle",
+          nameGap: 36,
+          min: -2.5,
+          max: 2.5,
+          axisLabel: {
+            formatter: "{value}%",
+            color: "#64748b"
+          },
+          splitLine: {
+            lineStyle: {
+              type: "dashed",
+              color: "#e2e8f0"
+            }
+          }
+        },
+        yAxis: {
+          type: "value",
+          name: "房价增长率",
+          nameLocation: "middle",
+          nameGap: 45,
+          min: -4,
+          max: 6,
+          axisLabel: {
+            formatter: "{value}%",
+            color: "#64748b"
+          },
+          splitLine: {
+            lineStyle: {
+              type: "dashed",
+              color: "#e2e8f0"
+            }
+          }
+        },
+        graphic: [
+          {
+            type: "text",
+            left: "72%",
+            top: "18%",
+            style: {
+              text: "强吸引型",
+              fill: "rgba(220,38,38,0.8)",
+              fontSize: 18,
+              fontWeight: 700
+            }
+          },
+          {
+            type: "text",
+            left: "18%",
+            top: "18%",
+            style: {
+              text: "价格支撑型",
+              fill: "rgba(249,115,22,0.8)",
+              fontSize: 18,
+              fontWeight: 700
+            }
+          },
+          {
+            type: "text",
+            left: "18%",
+            top: "78%",
+            style: {
+              text: "收缩压力型",
+              fill: "rgba(37,99,235,0.8)",
+              fontSize: 18,
+              fontWeight: 700
+            }
+          },
+          {
+            type: "text",
+            left: "70%",
+            top: "78%",
+            style: {
+              text: "人口承接型",
+              fill: "rgba(22,163,74,0.8)",
+              fontSize: 18,
+              fontWeight: 700
+            }
+          }
+        ],
+        series: [
+          {
+            name: "东部",
+            type: "scatter",
+            data: scatterData.filter(d => d.region === "东部"),
+            symbolSize: function(data) {
+              return Math.max(12, Math.min(42, data[2] * 9));
+            },
+            label: {
+              show: true,
+              formatter: "{b}",
+              position: "top",
+              color: "#334155",
+              fontSize: 11
+            }
+          },
+          {
+            name: "中部",
+            type: "scatter",
+            data: scatterData.filter(d => d.region === "中部"),
+            symbolSize: function(data) {
+              return Math.max(12, Math.min(42, data[2] * 9));
+            },
+            label: {
+              show: true,
+              formatter: "{b}",
+              position: "top",
+              color: "#334155",
+              fontSize: 11
+            }
+          },
+          {
+            name: "西部",
+            type: "scatter",
+            data: scatterData.filter(d => d.region === "西部"),
+            symbolSize: function(data) {
+              return Math.max(12, Math.min(42, data[2] * 9));
+            },
+            label: {
+              show: true,
+              formatter: "{b}",
+              position: "top",
+              color: "#334155",
+              fontSize: 11
+            }
+          },
+          {
+            name: "东北",
+            type: "scatter",
+            data: scatterData.filter(d => d.region === "东北"),
+            symbolSize: function(data) {
+              return Math.max(12, Math.min(42, data[2] * 9));
+            },
+            label: {
+              show: true,
+              formatter: "{b}",
+              position: "top",
+              color: "#334155",
+              fontSize: 11
+            }
+          },
+          {
+            type: "line",
+            markLine: {
+              symbol: "none",
+              silent: true,
+              lineStyle: {
+                color: "#94a3b8",
+                type: "dashed",
+                width: 1.3
+              },
+              data: [
+                { xAxis: 0 },
+                { yAxis: 0 }
+              ]
+            }
+          }
+        ]
+      };
+
+      scatterChart.setOption(option, true);
+
+      scatterChart.off("click");
+      scatterChart.on("click", function(params) {
+        if (params.name && cityData[params.name]) {
+          selectedCity = params.name;
+          renderScatter();
+          renderTrend();
+          updateProfile();
+        }
+      });
+    }
+
+    function renderTrend() {
+      const obj = cityData[selectedCity];
+      const priceIndex = obj.price.map(v => Number((v / obj.price[0] * 100).toFixed(1)));
+
+      const option = {
+        grid: {
+          left: 58,
+          right: 58,
+          top: 48,
+          bottom: 42
+        },
+        tooltip: {
+          trigger: "axis"
+        },
+        legend: {
+          top: 8,
+          right: 16,
+          textStyle: {
+            color: "#475569"
+          }
+        },
+        xAxis: {
+          type: "category",
+          data: years,
+          axisLabel: {
+            color: "#64748b"
+          }
+        },
+        yAxis: [
+          {
+            type: "value",
+            name: "房价指数",
+            min: 95,
+            axisLabel: {
+              color: "#64748b"
+            },
+            splitLine: {
+              lineStyle: {
+                type: "dashed",
+                color: "#e2e8f0"
+              }
+            }
+          },
+          {
+            type: "value",
+            name: "人口增减/万",
+            axisLabel: {
+              color: "#64748b"
+            },
+            splitLine: {
+              show: false
+            }
+          }
+        ],
+        series: [
+          {
+            name: "房价指数",
+            type: "line",
+            smooth: true,
+            yAxisIndex: 0,
+            data: priceIndex,
+            symbolSize: 8,
+            itemStyle: {
+              color: "#2563eb"
+            },
+            lineStyle: {
+              width: 4
+            }
+          },
+          {
+            name: "人口增减",
+            type: "bar",
+            yAxisIndex: 1,
+            data: obj.popGrowth,
+            itemStyle: {
+              color: function(params) {
+                return params.data >= 0 ? "#dc2626" : "#2563eb";
+              },
+              borderRadius: [6, 6, 0, 0]
+            }
+          }
+        ]
+      };
+
+      trendChart.setOption(option, true);
+    }
+
+    function normalize(value, min, max) {
+      const score = (value - min) / (max - min) * 100;
+      return Math.max(0, Math.min(100, score));
+    }
+
+    function setRing(id, score, color) {
+      const el = document.getElementById(id);
+      const degree = score * 3.6;
+      el.style.background =
+        `radial-gradient(circle at center, #ffffff 55%, transparent 56%),
+         conic-gradient(${color} ${degree}deg, #e2e8f0 ${degree}deg)`;
+      el.querySelector("span").innerText = Math.round(score);
+    }
+
+    function updateProfile() {
+      const obj = cityData[selectedCity];
+      const lastPrice = obj.price[obj.price.length - 1];
+      const hg = houseGrowth(selectedCity);
+      const pg = obj.popGrowth[obj.popGrowth.length - 1];
+      const pr = popGrowthRate(selectedCity);
+      const type = cityType(selectedCity);
+
+      document.getElementById("profileCity").innerText = selectedCity;
+      document.getElementById("profileType").innerText = type;
+
+      document.getElementById("valPrice").innerText = lastPrice.toLocaleString();
+      document.getElementById("valHouseGrowth").innerText = formatPct(hg);
+      document.getElementById("valPop").innerText = (pg > 0 ? "+" : "") + pg + "万";
+      document.getElementById("valPopRate").innerText = formatPct(pr);
+      document.getElementById("valGDP").innerText = obj.gdp + "万亿";
+      document.getElementById("valUrban").innerText = obj.urbanRate.toFixed(1) + "%";
+
+      setRing("ringPrice", normalize(lastPrice, 8000, 75000), "#2563eb");
+      setRing("ringHouseGrowth", normalize(hg, -3, 6), "#dc2626");
+      setRing("ringPop", normalize(pg, -22, 30), "#f97316");
+      setRing("ringPopRate", normalize(pr, -2.5, 2.0), "#16a34a");
+      setRing("ringGDP", normalize(obj.gdp, 0.5, 5.0), "#7c3aed");
+      setRing("ringUrban", normalize(obj.urbanRate, 60, 100), "#0891b2");
+    }
+
+    function updateAll() {
+      renderFilters();
+      renderScatter();
+      renderTrend();
+      updateProfile();
+    }
+
+    window.addEventListener("resize", () => {
+      scatterChart.resize();
+      trendChart.resize();
+    });
+
+    updateAll();
+  </script>
+</body>
+</html>

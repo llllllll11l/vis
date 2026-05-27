@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>全国房价—人口空间格局总览</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts-map@3.0.1/js/china.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+      background: #f4f7fb;
+      color: #1f2937;
+      letter-spacing: 0.5px;
+    }
+
+    .page {
+      width: 100vw;
+      min-height: 100vh;
+      padding: 22px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 16px;
+    }
+
+    .title h1 {
+      margin: 0;
+      font-size: 28px;
+      letter-spacing: 2px;
+    }
+
+    .year-control {
+      width: 340px;
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 14px 18px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      border: 1px solid #e2e8f0;
+    }
+
+    .year-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: #475569;
+    }
+
+    .year-value {
+      font-size: 22px;
+      color: #2563eb;
+      font-weight: 700;
+    }
+
+    input[type="range"] {
+      width: 100%;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1.75fr 1fr;
+      grid-template-rows: 0.95fr 1fr 1fr;
+      gap: 16px;
+      height: calc(100vh - 110px);
+      min-height: 900px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 20px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      overflow: hidden;
+    }
+
+    .map-card {
+      grid-row: 1 / 4;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-title {
+      padding: 18px 22px 10px;
+    }
+
+    .card-title h2 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: 1.5px;
+      line-height: 1.4;
+    }
+
+    #mapChart {
+      flex: 1;
+      min-height: 760px;
+    }
+
+    .side-top {
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    .summary {
+      padding: 0 22px 20px;
+    }
+
+    .province-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .province-name {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 3px;
+    }
+
+    .tag {
+      padding: 6px 12px;
+      border-radius: 18px;
+      background: #eff6ff;
+      color: #2563eb;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .metric {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .metric-label {
+      font-size: 12px;
+      color: #64748b;
+      margin-bottom: 8px;
+    }
+
+    .metric-value {
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .up {
+      color: #dc2626;
+    }
+
+    .down {
+      color: #2563eb;
+    }
+
+    .class-box {
+      border-radius: 16px;
+      background: #fff7ed;
+      padding: 14px 16px;
+      color: #9a3412;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    #trendChart,
+    #regionChart {
+      width: 100%;
+      height: calc(100% - 58px);
+      min-height: 230px;
+    }
+
+    @media (max-width: 1100px) {
+      .header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+      }
+
+      .year-control {
+        width: 100%;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+
+      .map-card {
+        grid-row: auto;
+      }
+
+      #mapChart {
+        height: 560px;
+      }
+
+      .side-top {
+        min-height: 420px;
+      }
+
+      #trendChart,
+      #regionChart {
+        height: 360px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <div class="header">
+      <div class="title">
+        <h1>全国房价—人口空间格局总览</h1>
+      </div>
+
+      <div class="year-control">
+        <div class="year-row">
+          <span>选择年份</span>
+          <span class="year-value" id="yearText">2024</span>
+        </div>
+        <input id="yearSlider" type="range" min="2018" max="2024" step="1" value="2024" />
+      </div>
+    </div>
+
+    <div class="layout">
+      <div class="card map-card">
+        <div class="card-title">
+          <h2>房价—人口双变量空间地图</h2>
+        </div>
+        <div id="mapChart"></div>
+      </div>
+
+      <div class="card side-top">
+        <div class="card-title">
+          <h2>省份摘要卡片</h2>
+        </div>
+
+        <div class="summary">
+          <div class="province-head">
+            <div class="province-name" id="provinceName">广东</div>
+            <div class="tag" id="provinceRegion">东部地区</div>
+          </div>
+
+          <div class="metric-grid">
+            <div class="metric">
+              <div class="metric-label">平均房价</div>
+              <div class="metric-value" id="housePrice">14800</div>
+            </div>
+
+            <div class="metric">
+              <div class="metric-label">房价涨幅</div>
+              <div class="metric-value up" id="houseGrowth">+3.2%</div>
+            </div>
+
+            <div class="metric">
+              <div class="metric-label">人口增减</div>
+              <div class="metric-value up" id="popGrowth">+74 万</div>
+            </div>
+
+            <div class="metric">
+              <div class="metric-label">综合类型</div>
+              <div class="metric-value" id="provinceType">强吸引型</div>
+            </div>
+          </div>
+
+          <div class="class-box" id="summaryText">
+            广东在当前年份表现为房价水平较高且人口增长明显，说明其经济活跃度和人口吸引力较强。
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <h2>全国趋势缩略图</h2>
+        </div>
+        <div id="trendChart"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <h2>区域房价—人口对比视图</h2>
+        </div>
+        <div id="regionChart"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const years = [2018, 2019, 2020, 2021, 2022, 2023, 2024];
+
+    const provinceCoord = {
+      "北京": [116.40, 39.90],
+      "天津": [117.20, 39.12],
+      "河北": [114.52, 38.05],
+      "山西": [112.55, 37.87],
+      "内蒙古": [111.67, 40.82],
+      "辽宁": [123.43, 41.80],
+      "吉林": [125.32, 43.90],
+      "黑龙江": [126.63, 45.75],
+      "上海": [121.47, 31.23],
+      "江苏": [118.78, 32.04],
+      "浙江": [120.15, 30.28],
+      "安徽": [117.28, 31.86],
+      "福建": [119.30, 26.08],
+      "江西": [115.89, 28.68],
+      "山东": [117.00, 36.65],
+      "河南": [113.62, 34.75],
+      "湖北": [114.30, 30.60],
+      "湖南": [112.98, 28.20],
+      "广东": [113.27, 23.13],
+      "广西": [108.32, 22.82],
+      "海南": [110.35, 20.02],
+      "重庆": [106.55, 29.56],
+      "四川": [104.06, 30.67],
+      "贵州": [106.63, 26.65],
+      "云南": [102.71, 25.04],
+      "西藏": [91.13, 29.65],
+      "陕西": [108.95, 34.27],
+      "甘肃": [103.82, 36.06],
+      "青海": [101.78, 36.62],
+      "宁夏": [106.23, 38.48],
+      "新疆": [87.62, 43.82]
+    };
+
+    const regionMap = {
+      "北京": "东部", "天津": "东部", "河北": "东部", "上海": "东部", "江苏": "东部",
+      "浙江": "东部", "福建": "东部", "山东": "东部", "广东": "东部", "海南": "东部",
+      "山西": "中部", "安徽": "中部", "江西": "中部", "河南": "中部", "湖北": "中部", "湖南": "中部",
+      "内蒙古": "西部", "广西": "西部", "重庆": "西部", "四川": "西部", "贵州": "西部",
+      "云南": "西部", "西藏": "西部", "陕西": "西部", "甘肃": "西部", "青海": "西部",
+      "宁夏": "西部", "新疆": "西部",
+      "辽宁": "东北", "吉林": "东北", "黑龙江": "东北"
+    };
+
+    const housePriceData = {
+      "北京":   [33000, 34500, 36500, 38600, 39800, 40500, 41800],
+      "天津":   [14500, 14800, 15000, 15300, 15100, 14900, 15000],
+      "河北":   [8200, 8500, 8700, 8900, 8800, 8750, 8850],
+      "山西":   [7600, 7800, 8000, 8200, 8150, 8100, 8180],
+      "内蒙古": [6900, 7000, 7100, 7200, 7150, 7100, 7120],
+      "辽宁":   [9600, 9800, 9900, 10000, 9800, 9700, 9650],
+      "吉林":   [7200, 7300, 7350, 7400, 7280, 7200, 7150],
+      "黑龙江": [6900, 7000, 7050, 7100, 7000, 6900, 6850],
+      "上海":   [35000, 36500, 38500, 40500, 41800, 42800, 44200],
+      "江苏":   [13500, 14200, 14800, 15600, 16000, 16400, 17000],
+      "浙江":   [15500, 16300, 17200, 18500, 19200, 19800, 20500],
+      "安徽":   [8500, 8800, 9200, 9600, 9800, 9950, 10200],
+      "福建":   [12600, 13200, 13800, 14600, 15000, 15300, 15800],
+      "江西":   [7800, 8050, 8350, 8600, 8700, 8750, 8900],
+      "山东":   [9800, 10100, 10400, 10800, 11000, 11200, 11500],
+      "河南":   [7800, 8000, 8150, 8300, 8250, 8200, 8280],
+      "湖北":   [9400, 9700, 10100, 10600, 10800, 11000, 11300],
+      "湖南":   [8500, 8800, 9100, 9400, 9500, 9580, 9700],
+      "广东":   [11200, 11800, 12600, 13700, 14200, 14500, 14800],
+      "广西":   [7600, 7800, 8050, 8300, 8400, 8450, 8550],
+      "海南":   [12500, 13200, 14500, 15500, 16000, 16300, 16800],
+      "重庆":   [9200, 9500, 9900, 10400, 10600, 10800, 11100],
+      "四川":   [8500, 8800, 9250, 9700, 9900, 10100, 10400],
+      "贵州":   [6800, 7000, 7250, 7450, 7500, 7550, 7650],
+      "云南":   [7800, 8100, 8450, 8800, 8900, 9000, 9200],
+      "西藏":   [6200, 6400, 6600, 6800, 7000, 7200, 7350],
+      "陕西":   [9000, 9300, 9700, 10100, 10300, 10500, 10800],
+      "甘肃":   [6500, 6650, 6800, 6950, 7000, 7020, 7100],
+      "青海":   [6100, 6250, 6400, 6550, 6600, 6650, 6700],
+      "宁夏":   [6300, 6450, 6600, 6750, 6820, 6900, 7000],
+      "新疆":   [7000, 7200, 7450, 7700, 7850, 8000, 8150]
+    };
+
+    const populationGrowthData = {
+      "北京":   [-2, -1, 1, 0, -3, -2, 1],
+      "天津":   [-5, -4, -2, -1, -3, -2, -1],
+      "河北":   [-18, -12, -8, -6, -10, -9, -7],
+      "山西":   [-16, -18, -20, -22, -25, -24, -21],
+      "内蒙古": [-8, -7, -5, -3, -4, -5, -4],
+      "辽宁":   [-24, -26, -28, -30, -32, -31, -29],
+      "吉林":   [-18, -21, -24, -25, -27, -28, -26],
+      "黑龙江": [-36, -38, -42, -45, -48, -46, -44],
+      "上海":   [4, 5, 8, 6, 3, 4, 6],
+      "江苏":   [18, 22, 28, 30, 24, 26, 31],
+      "浙江":   [34, 39, 50, 55, 43, 45, 52],
+      "安徽":   [-6, -4, 2, 3, 1, 2, 4],
+      "福建":   [12, 15, 20, 22, 18, 19, 21],
+      "江西":   [-10, -8, -6, -5, -7, -6, -4],
+      "山东":   [6, 8, 12, 10, 5, 7, 9],
+      "河南":   [-22, -25, -18, -20, -26, -24, -23],
+      "湖北":   [-8, -6, 4, 6, 3, 4, 7],
+      "湖南":   [-20, -18, -15, -12, -16, -15, -13],
+      "广东":   [55, 62, 76, 82, 64, 68, 74],
+      "广西":   [-4, -2, 1, 3, 2, 1, 2],
+      "海南":   [8, 10, 15, 18, 14, 13, 16],
+      "重庆":   [6, 8, 11, 14, 12, 13, 15],
+      "四川":   [-12, -10, -6, -4, -8, -7, -5],
+      "贵州":   [-5, -3, 0, 1, -1, 0, 1],
+      "云南":   [-3, -2, 2, 3, 1, 2, 4],
+      "西藏":   [1, 1, 2, 2, 2, 3, 3],
+      "陕西":   [2, 4, 6, 8, 5, 6, 7],
+      "甘肃":   [-10, -12, -13, -15, -16, -15, -14],
+      "青海":   [0, 1, 1, 1, 1, 1, 1],
+      "宁夏":   [1, 2, 2, 3, 2, 2, 3],
+      "新疆":   [8, 9, 11, 12, 10, 11, 12]
+    };
+
+    let currentYear = 2024;
+    let selectedProvince = "广东";
+
+    const mapChart = echarts.init(document.getElementById("mapChart"));
+    const trendChart = echarts.init(document.getElementById("trendChart"));
+    const regionChart = echarts.init(document.getElementById("regionChart"));
+
+    function yearIndex() {
+      return years.indexOf(currentYear);
+    }
+
+    function getHouseGrowth(province, idx) {
+      if (idx === 0) return 0;
+      const arr = housePriceData[province];
+      return ((arr[idx] - arr[idx - 1]) / arr[idx - 1]) * 100;
+    }
+
+    function getProvinceCurrentData() {
+      const idx = yearIndex();
+      return Object.keys(housePriceData).map(name => ({
+        name,
+        housePrice: housePriceData[name][idx],
+        houseGrowth: getHouseGrowth(name, idx),
+        popGrowth: populationGrowthData[name][idx],
+        region: regionMap[name]
+      }));
+    }
+
+    function formatPct(v) {
+      return (v > 0 ? "+" : "") + v.toFixed(1) + "%";
+    }
+
+    function renderMap() {
+      const data = getProvinceCurrentData();
+
+      const mapData = data.map(d => ({
+        name: d.name,
+        value: d.housePrice,
+        houseGrowth: d.houseGrowth,
+        popGrowth: d.popGrowth,
+        region: d.region
+      }));
+
+      const scatterData = data
+        .filter(d => provinceCoord[d.name])
+        .map(d => ({
+          name: d.name,
+          value: [
+            provinceCoord[d.name][0],
+            provinceCoord[d.name][1],
+            Math.abs(d.popGrowth),
+            d.popGrowth,
+            d.housePrice
+          ],
+          itemStyle: {
+            color: d.popGrowth >= 0 ? "#dc2626" : "#2563eb"
+          }
+        }));
+
+      const option = {
+        tooltip: {
+          trigger: "item",
+          backgroundColor: "rgba(15,23,42,0.92)",
+          borderColor: "transparent",
+          textStyle: {
+            color: "#fff"
+          },
+          formatter: function(params) {
+            if (params.seriesType === "effectScatter") {
+              const pop = params.value[3];
+              return `${params.name}<br/>人口增减：${pop > 0 ? "+" : ""}${pop} 万人<br/>平均房价：${params.value[4]} 元/㎡`;
+            }
+
+            if (params.data) {
+              return `${params.name}<br/>
+                平均房价：${params.data.housePrice} 元/㎡<br/>
+                房价涨幅：${formatPct(params.data.houseGrowth)}<br/>
+                人口增减：${params.data.popGrowth > 0 ? "+" : ""}${params.data.popGrowth} 万人`;
+            }
+
+            return params.name;
+          }
+        },
+        visualMap: {
+          min: 6000,
+          max: 45000,
+          left: 24,
+          bottom: 36,
+          text: ["高房价", "低房价"],
+          inRange: {
+            color: ["#eff6ff", "#bfdbfe", "#60a5fa", "#2563eb", "#1e3a8a"]
+          },
+          textStyle: {
+            color: "#475569"
+          }
+        },
+        geo: {
+          map: "china",
+          roam: true,
+          zoom: 1.1,
+          label: {
+            show: false
+          },
+          itemStyle: {
+            borderColor: "#cbd5e1",
+            borderWidth: 0.8
+          },
+          emphasis: {
+            label: {
+              show: true,
+              color: "#111827"
+            },
+            itemStyle: {
+              areaColor: "#fde68a"
+            }
+          }
+        },
+        series: [
+          {
+            name: "平均房价",
+            type: "map",
+            map: "china",
+            geoIndex: 0,
+            data: mapData
+          },
+          {
+            name: "人口增减",
+            type: "effectScatter",
+            coordinateSystem: "geo",
+            zlevel: 2,
+            rippleEffect: {
+              brushType: "stroke",
+              scale: 2.5
+            },
+            symbolSize: function(val) {
+              return Math.max(6, Math.min(28, val[2] / 3));
+            },
+            data: scatterData
+          }
+        ]
+      };
+
+      mapChart.setOption(option, true);
+
+      mapChart.off("click");
+      mapChart.on("click", function(params) {
+        if (params.name && housePriceData[params.name]) {
+          selectedProvince = params.name;
+          updateSummary();
+          renderTrend();
+          renderRegion();
+        }
+      });
+    }
+
+    function provinceType(houseGrowth, popGrowth) {
+      if (popGrowth > 0 && houseGrowth > 0) return "强吸引型";
+      if (popGrowth < 0 && houseGrowth > 0) return "价格支撑型";
+      if (popGrowth < 0 && houseGrowth <= 0) return "收缩压力型";
+      if (popGrowth > 0 && houseGrowth <= 0) return "人口承接型";
+      return "平稳型";
+    }
+
+    function updateSummary() {
+      const idx = yearIndex();
+      const price = housePriceData[selectedProvince][idx];
+      const pop = populationGrowthData[selectedProvince][idx];
+      const growth = getHouseGrowth(selectedProvince, idx);
+      const region = regionMap[selectedProvince];
+      const type = provinceType(growth, pop);
+
+      document.getElementById("provinceName").innerText = selectedProvince;
+      document.getElementById("provinceRegion").innerText = region + "地区";
+      document.getElementById("housePrice").innerText = price.toLocaleString();
+      document.getElementById("houseGrowth").innerText = formatPct(growth);
+      document.getElementById("houseGrowth").className = "metric-value " + (growth >= 0 ? "up" : "down");
+
+      document.getElementById("popGrowth").innerText = (pop > 0 ? "+" : "") + pop + " 万";
+      document.getElementById("popGrowth").className = "metric-value " + (pop >= 0 ? "up" : "down");
+
+      document.getElementById("provinceType").innerText = type;
+
+      let text = "";
+      if (type === "强吸引型") {
+        text = `${selectedProvince}在当前年份表现为房价上涨且人口增长，说明其住房市场与人口吸引力均较强。`;
+      } else if (type === "价格支撑型") {
+        text = `${selectedProvince}在当前年份人口减少但房价仍上涨，可能受到城市资源、核心区位或市场预期支撑。`;
+      } else if (type === "收缩压力型") {
+        text = `${selectedProvince}在当前年份人口减少且房价增长乏力，可能面临一定的发展收缩压力。`;
+      } else if (type === "人口承接型") {
+        text = `${selectedProvince}在当前年份人口增长但房价涨幅较弱，可能体现出人口承接和住房成本优势。`;
+      } else {
+        text = `${selectedProvince}在当前年份房价和人口变化相对平稳。`;
+      }
+
+      document.getElementById("summaryText").innerText = text;
+    }
+
+    function renderTrend() {
+      const idx = yearIndex();
+
+      const nationalPrice = years.map((year, i) => {
+        const values = Object.keys(housePriceData).map(p => housePriceData[p][i]);
+        return Math.round(values.reduce((a, b) => a + b, 0) / values.length);
+      });
+
+      const nationalPop = years.map((year, i) => {
+        return Object.keys(populationGrowthData)
+          .map(p => populationGrowthData[p][i])
+          .reduce((a, b) => a + b, 0);
+      });
+
+      const option = {
+        grid: {
+          left: 58,
+          right: 58,
+          top: 48,
+          bottom: 42
+        },
+        tooltip: {
+          trigger: "axis"
+        },
+        legend: {
+          top: 8,
+          right: 16,
+          textStyle: {
+            color: "#475569"
+          }
+        },
+        xAxis: {
+          type: "category",
+          data: years,
+          axisLabel: {
+            color: "#64748b"
+          }
+        },
+        yAxis: [
+          {
+            type: "value",
+            name: "元/㎡",
+            axisLabel: {
+              color: "#64748b"
+            },
+            splitLine: {
+              lineStyle: {
+                type: "dashed",
+                color: "#e2e8f0"
+              }
+            }
+          },
+          {
+            type: "value",
+            name: "万人",
+            axisLabel: {
+              color: "#64748b"
+            },
+            splitLine: {
+              show: false
+            }
+          }
+        ],
+        series: [
+          {
+            name: "全国平均房价",
+            type: "line",
+            smooth: true,
+            yAxisIndex: 0,
+            data: nationalPrice,
+            symbolSize: function(value, params) {
+              return params.dataIndex === idx ? 12 : 7;
+            },
+            itemStyle: {
+              color: "#2563eb"
+            },
+            lineStyle: {
+              width: 4
+            }
+          },
+          {
+            name: "全国人口增减",
+            type: "bar",
+            yAxisIndex: 1,
+            data: nationalPop,
+            itemStyle: {
+              color: function(params) {
+                return params.data >= 0 ? "#dc2626" : "#2563eb";
+              },
+              borderRadius: [6, 6, 0, 0]
+            }
+          }
+        ]
+      };
+
+      trendChart.setOption(option, true);
+    }
+
+    function renderRegion() {
+      const data = getProvinceCurrentData();
+      const regions = ["东部", "中部", "西部", "东北"];
+
+      const regionData = regions.map(region => {
+        const items = data.filter(d => d.region === region);
+        const avgPrice = items.reduce((sum, d) => sum + d.housePrice, 0) / items.length;
+        const popSum = items.reduce((sum, d) => sum + d.popGrowth, 0);
+        const avgGrowth = items.reduce((sum, d) => sum + d.houseGrowth, 0) / items.length;
+
+        return {
+          name: region,
+          value: [popSum, avgPrice, Math.abs(avgGrowth) * 20 + 20, avgGrowth]
+        };
+      });
+
+      const option = {
+        grid: {
+          left: 62,
+          right: 34,
+          top: 36,
+          bottom: 48
+        },
+        tooltip: {
+          trigger: "item",
+          formatter: function(params) {
+            const v = params.value;
+            return `${params.name}<br/>
+              人口增减：${v[0] > 0 ? "+" : ""}${v[0]} 万人<br/>
+              平均房价：${Math.round(v[1])} 元/㎡<br/>
+              平均房价涨幅：${formatPct(v[3])}`;
+          }
+        },
+        xAxis: {
+          type: "value",
+          name: "人口增减 / 万人",
+          nameLocation: "middle",
+          nameGap: 30,
+          axisLabel: {
+            color: "#64748b"
+          },
+          splitLine: {
+            lineStyle: {
+              type: "dashed",
+              color: "#e2e8f0"
+            }
+          }
+        },
+        yAxis: {
+          type: "value",
+          name: "平均房价",
+          axisLabel: {
+            color: "#64748b"
+          },
+          splitLine: {
+            lineStyle: {
+              type: "dashed",
+              color: "#e2e8f0"
+            }
+          }
+        },
+        series: [
+          {
+            type: "scatter",
+            symbolSize: function(data) {
+              return data[2];
+            },
+            data: regionData,
+            label: {
+              show: true,
+              formatter: "{b}",
+              color: "#1f2937",
+              fontWeight: 700,
+              position: "top"
+            },
+            itemStyle: {
+              color: function(params) {
+                const pop = params.value[0];
+                return pop >= 0 ? "#dc2626" : "#2563eb";
+              },
+              opacity: 0.78
+            },
+            markLine: {
+              symbol: "none",
+              lineStyle: {
+                type: "dashed",
+                color: "#94a3b8"
+              },
+              data: [
+                { xAxis: 0 }
+              ]
+            }
+          }
+        ]
+      };
+
+      regionChart.setOption(option, true);
+    }
+
+    function updateAll() {
+      document.getElementById("yearText").innerText = currentYear;
+      renderMap();
+      updateSummary();
+      renderTrend();
+      renderRegion();
+    }
+
+    document.getElementById("yearSlider").addEventListener("input", function(e) {
+      currentYear = Number(e.target.value);
+      updateAll();
+    });
+
+    window.addEventListener("resize", () => {
+      mapChart.resize();
+      trendChart.resize();
+      regionChart.resize();
+    });
+
+    updateAll();
+  </script>
+</body>
+</html>

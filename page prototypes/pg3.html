@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>人口增减与流动格局分析</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts-map@3.0.1/js/china.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+      background: #f4f7fb;
+      color: #1f2937;
+      letter-spacing: 0.5px;
+    }
+
+    .page {
+      width: 100vw;
+      min-height: 100vh;
+      padding: 22px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 16px;
+    }
+
+    .title h1 {
+      margin: 0;
+      font-size: 28px;
+      letter-spacing: 2px;
+    }
+
+    .year-control {
+      width: 340px;
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 14px 18px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      border: 1px solid #e2e8f0;
+    }
+
+    .year-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: #475569;
+    }
+
+    .year-value {
+      font-size: 22px;
+      color: #2563eb;
+      font-weight: 700;
+    }
+
+    input[type="range"] {
+      width: 100%;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1.65fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 16px;
+      height: calc(100vh - 110px);
+      min-height: 820px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 20px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      overflow: hidden;
+    }
+
+    .map-card {
+      grid-row: 1 / 3;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-title {
+      padding: 18px 22px 10px;
+    }
+
+    .card-title h2 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: 1.5px;
+      line-height: 1.4;
+    }
+
+    #mapChart {
+      flex: 1;
+      min-height: 650px;
+    }
+
+    #rankChart,
+    #trendChart,
+    #structureChart {
+      width: 100%;
+      height: 100%;
+    }
+
+    .right-top {
+      display: grid;
+      grid-template-rows: 1fr;
+      min-height: 0;
+    }
+
+    .right-bottom {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 16px;
+      min-height: 0;
+    }
+
+    @media (max-width: 1100px) {
+      .header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+      }
+
+      .year-control {
+        width: 100%;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+
+      .map-card {
+        grid-row: auto;
+      }
+
+      #mapChart {
+        height: 560px;
+      }
+
+      .right-top,
+      .right-bottom {
+        height: 460px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <div class="header">
+      <div class="title">
+        <h1>人口增减与流动格局分析</h1>
+      </div>
+
+      <div class="year-control">
+        <div class="year-row">
+          <span>选择年份</span>
+          <span class="year-value" id="yearText">2024</span>
+        </div>
+        <input id="yearSlider" type="range" min="2018" max="2024" step="1" value="2024" />
+      </div>
+    </div>
+
+    <div class="layout">
+      <div class="card map-card">
+        <div class="card-title">
+          <h2>人口增减空间格局图</h2>
+        </div>
+        <div id="mapChart"></div>
+      </div>
+
+      <div class="card right-top">
+        <div>
+          <div class="card-title">
+            <h2>人口净增长—净减少发散排名图</h2>
+          </div>
+          <div id="rankChart" style="height: calc(100% - 58px);"></div>
+        </div>
+      </div>
+
+      <div class="right-bottom">
+        <div class="card">
+          <div class="card-title">
+            <h2>重点省份人口变化趋势图</h2>
+          </div>
+          <div id="trendChart" style="height: calc(100% - 58px);"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <h2>区域人口增减结构图</h2>
+          </div>
+          <div id="structureChart" style="height: calc(100% - 58px);"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const years = [2018, 2019, 2020, 2021, 2022, 2023, 2024];
+
+    const provinceCoord = {
+      "北京": [116.40, 39.90],
+      "天津": [117.20, 39.12],
+      "河北": [114.52, 38.05],
+      "山西": [112.55, 37.87],
+      "内蒙古": [111.67, 40.82],
+      "辽宁": [123.43, 41.80],
+      "吉林": [125.32, 43.90],
+      "黑龙江": [126.63, 45.75],
+      "上海": [121.47, 31.23],
+      "江苏": [118.78, 32.04],
+      "浙江": [120.15, 30.28],
+      "安徽": [117.28, 31.86],
+      "福建": [119.30, 26.08],
+      "江西": [115.89, 28.68],
+      "山东": [117.00, 36.65],
+      "河南": [113.62, 34.75],
+      "湖北": [114.30, 30.60],
+      "湖南": [112.98, 28.20],
+      "广东": [113.27, 23.13],
+      "广西": [108.32, 22.82],
+      "海南": [110.35, 20.02],
+      "重庆": [106.55, 29.56],
+      "四川": [104.06, 30.67],
+      "贵州": [106.63, 26.65],
+      "云南": [102.71, 25.04],
+      "西藏": [91.13, 29.65],
+      "陕西": [108.95, 34.27],
+      "甘肃": [103.82, 36.06],
+      "青海": [101.78, 36.62],
+      "宁夏": [106.23, 38.48],
+      "新疆": [87.62, 43.82]
+    };
+
+    const regionMap = {
+      "北京": "东部", "天津": "东部", "河北": "东部", "上海": "东部", "江苏": "东部",
+      "浙江": "东部", "福建": "东部", "山东": "东部", "广东": "东部", "海南": "东部",
+      "山西": "中部", "安徽": "中部", "江西": "中部", "河南": "中部", "湖北": "中部", "湖南": "中部",
+      "内蒙古": "西部", "广西": "西部", "重庆": "西部", "四川": "西部", "贵州": "西部",
+      "云南": "西部", "西藏": "西部", "陕西": "西部", "甘肃": "西部", "青海": "西部",
+      "宁夏": "西部", "新疆": "西部",
+      "辽宁": "东北", "吉林": "东北", "黑龙江": "东北"
+    };
+
+    const populationData = {
+      "北京":   [-2, -1, 1, 0, -3, -2, 1],
+      "天津":   [-5, -4, -2, -1, -3, -2, -1],
+      "河北":   [-18, -12, -8, -6, -10, -9, -7],
+      "山西":   [-16, -18, -20, -22, -25, -24, -21],
+      "内蒙古": [-8, -7, -5, -3, -4, -5, -4],
+      "辽宁":   [-24, -26, -28, -30, -32, -31, -29],
+      "吉林":   [-18, -21, -24, -25, -27, -28, -26],
+      "黑龙江": [-36, -38, -42, -45, -48, -46, -44],
+      "上海":   [4, 5, 8, 6, 3, 4, 6],
+      "江苏":   [18, 22, 28, 30, 24, 26, 31],
+      "浙江":   [34, 39, 50, 55, 43, 45, 52],
+      "安徽":   [-6, -4, 2, 3, 1, 2, 4],
+      "福建":   [12, 15, 20, 22, 18, 19, 21],
+      "江西":   [-10, -8, -6, -5, -7, -6, -4],
+      "山东":   [6, 8, 12, 10, 5, 7, 9],
+      "河南":   [-22, -25, -18, -20, -26, -24, -23],
+      "湖北":   [-8, -6, 4, 6, 3, 4, 7],
+      "湖南":   [-20, -18, -15, -12, -16, -15, -13],
+      "广东":   [55, 62, 76, 82, 64, 68, 74],
+      "广西":   [-4, -2, 1, 3, 2, 1, 2],
+      "海南":   [8, 10, 15, 18, 14, 13, 16],
+      "重庆":   [6, 8, 11, 14, 12, 13, 15],
+      "四川":   [-12, -10, -6, -4, -8, -7, -5],
+      "贵州":   [-5, -3, 0, 1, -1, 0, 1],
+      "云南":   [-3, -2, 2, 3, 1, 2, 4],
+      "西藏":   [1, 1, 2, 2, 2, 3, 3],
+      "陕西":   [2, 4, 6, 8, 5, 6, 7],
+      "甘肃":   [-10, -12, -13, -15, -16, -15, -14],
+      "青海":   [0, 1, 1, 1, 1, 1, 1],
+      "宁夏":   [1, 2, 2, 3, 2, 2, 3],
+      "新疆":   [8, 9, 11, 12, 10, 11, 12]
+    };
+
+    let currentYear = 2024;
+    let selectedProvince = "广东";
+
+    const mapChart = echarts.init(document.getElementById("mapChart"));
+    const rankChart = echarts.init(document.getElementById("rankChart"));
+    const trendChart = echarts.init(document.getElementById("trendChart"));
+    const structureChart = echarts.init(document.getElementById("structureChart"));
+
+    function yearIndex() {
+      return years.indexOf(currentYear);
+    }
+
+    function getCurrentData() {
+      const idx = yearIndex();
+      return Object.keys(populationData).map(name => ({
+        name,
+        value: populationData[name][idx],
+        region: regionMap[name]
+      }));
+    }
+
+    function buildTrendLines() {
+      const data = getCurrentData();
+
+      const negative = data
+        .filter(d => d.value < -10 && provinceCoord[d.name])
+        .sort((a, b) => a.value - b.value)
+        .slice(0, 6);
+
+      const positive = data
+        .filter(d => d.value > 15 && provinceCoord[d.name])
+        .sort((a, b) => b.value - a.value)
+        .slice(0, 4);
+
+      const lines = [];
+
+      negative.forEach((src, idx) => {
+        const target = positive[idx % positive.length];
+        if (target) {
+          lines.push({
+            fromName: src.name,
+            toName: target.name,
+            coords: [provinceCoord[src.name], provinceCoord[target.name]],
+            value: Math.min(Math.abs(src.value), Math.abs(target.value))
+          });
+        }
+      });
+
+      return lines;
+    }
+
+    function renderMap() {
+      const data = getCurrentData();
+      const lines = buildTrendLines();
+
+      const option = {
+        tooltip: {
+          trigger: "item",
+          backgroundColor: "rgba(15,23,42,0.92)",
+          borderColor: "transparent",
+          textStyle: { color: "#fff" },
+          formatter: function (params) {
+            if (params.seriesType === "lines") {
+              return `${params.data.fromName} → ${params.data.toName}<br/>趋势强度：${params.data.value} 万人`;
+            }
+            if (params.data) {
+              const v = params.data.value;
+              return `${params.name}<br/>人口增减：${v > 0 ? "+" : ""}${v} 万人`;
+            }
+            return params.name;
+          }
+        },
+        visualMap: {
+          min: -60,
+          max: 90,
+          left: 24,
+          bottom: 36,
+          text: ["增长", "减少"],
+          inRange: {
+            color: ["#2563eb", "#e0f2fe", "#fff7ed", "#dc2626"]
+          },
+          textStyle: {
+            color: "#475569"
+          }
+        },
+        geo: {
+          map: "china",
+          roam: true,
+          zoom: 1.1,
+          label: {
+            show: false
+          },
+          itemStyle: {
+            borderColor: "#cbd5e1",
+            borderWidth: 0.8
+          },
+          emphasis: {
+            label: {
+              show: true,
+              color: "#111827"
+            },
+            itemStyle: {
+              areaColor: "#fde68a"
+            }
+          }
+        },
+        series: [
+          {
+            name: "人口增减",
+            type: "map",
+            map: "china",
+            geoIndex: 0,
+            data
+          },
+          {
+            name: "人口流动趋势示意",
+            type: "lines",
+            coordinateSystem: "geo",
+            zlevel: 2,
+            effect: {
+              show: true,
+              period: 5,
+              trailLength: 0.25,
+              symbol: "arrow",
+              symbolSize: 8
+            },
+            lineStyle: {
+              color: "#f97316",
+              width: 1.8,
+              opacity: 0.58,
+              curveness: 0.28
+            },
+            data: lines
+          },
+          {
+            name: "重点增长地区",
+            type: "effectScatter",
+            coordinateSystem: "geo",
+            zlevel: 3,
+            rippleEffect: {
+              brushType: "stroke"
+            },
+            symbolSize: function (val) {
+              return Math.max(8, Math.min(22, val[2] / 4));
+            },
+            itemStyle: {
+              color: "#dc2626"
+            },
+            data: data
+              .filter(d => d.value > 15 && provinceCoord[d.name])
+              .map(d => ({
+                name: d.name,
+                value: [...provinceCoord[d.name], d.value]
+              }))
+          }
+        ]
+      };
+
+      mapChart.setOption(option, true);
+
+      mapChart.off("click");
+      mapChart.on("click", function (params) {
+        if (params.name && populationData[params.name]) {
+          selectedProvince = params.name;
+          renderTrend();
+          renderRank();
+        }
+      });
+    }
+
+    function renderRank() {
+      const data = getCurrentData().sort((a, b) => a.value - b.value);
+
+      const bottom = data.slice(0, 8);
+      const top = data.slice(-8);
+      const merged = [...bottom, ...top];
+
+      const names = merged.map(d => d.name);
+      const values = merged.map(d => d.value);
+
+      const option = {
+        grid: {
+          left: 76,
+          right: 40,
+          top: 24,
+          bottom: 34
+        },
+        tooltip: {
+          trigger: "axis",
+          axisPointer: { type: "shadow" },
+          formatter: function (params) {
+            const p = params[0];
+            return `${p.name}<br/>人口增减：${p.value > 0 ? "+" : ""}${p.value} 万人`;
+          }
+        },
+        xAxis: {
+          type: "value",
+          axisLabel: {
+            formatter: "{value}",
+            color: "#64748b"
+          },
+          splitLine: {
+            lineStyle: {
+              type: "dashed",
+              color: "#e2e8f0"
+            }
+          }
+        },
+        yAxis: {
+          type: "category",
+          data: names,
+          axisLabel: {
+            color: function(value) {
+              return value === selectedProvince ? "#f97316" : "#475569";
+            },
+            fontWeight: function(value) {
+              return value === selectedProvince ? 700 : 400;
+            }
+          }
+        },
+        series: [
+          {
+            type: "bar",
+            data: values.map((v, i) => ({
+              value: v,
+              itemStyle: {
+                color: names[i] === selectedProvince
+                  ? "#f97316"
+                  : v >= 0
+                    ? "#dc2626"
+                    : "#2563eb"
+              }
+            })),
+            label: {
+              show: true,
+              position: function(params) {
+                return params.value >= 0 ? "right" : "left";
+              },
+              formatter: function(params) {
+                return (params.value > 0 ? "+" : "") + params.value;
+              },
+              color: "#334155",
+              fontSize: 11
+            }
+          }
+        ]
+      };
+
+      rankChart.setOption(option, true);
+    }
+
+    function renderTrend() {
+      const values = populationData[selectedProvince];
+
+      const option = {
+        grid: {
+          left: 58,
+          right: 28,
+          top: 54,
+          bottom: 42
+        },
+        tooltip: {
+          trigger: "axis",
+          formatter: function(params) {
+            const p = params[0];
+            return `${selectedProvince}<br/>${p.name} 年：${p.value > 0 ? "+" : ""}${p.value} 万人`;
+          }
+        },
+        xAxis: {
+          type: "category",
+          data: years,
+          axisLabel: {
+            color: "#64748b",
+            fontSize: 12
+          },
+          axisTick: {
+            alignWithLabel: true
+          }
+        },
+        yAxis: {
+          type: "value",
+          name: "万人",
+          nameLocation: "end",
+          nameGap: 14,
+          min: function(value) {
+            return Math.floor(value.min - 10);
+          },
+          max: function(value) {
+            return Math.ceil(value.max + 10);
+          },
+          nameTextStyle: {
+            color: "#64748b",
+            fontSize: 12,
+            padding: [0, 0, 4, 0]
+          },
+          axisLabel: {
+            color: "#64748b",
+            fontSize: 12,
+            margin: 10
+          },
+          splitLine: {
+            lineStyle: {
+              type: "dashed",
+              color: "#e2e8f0"
+            }
+          }
+        },
+        title: {
+          text: selectedProvince + "人口增减趋势",
+          left: 22,
+          top: 8,
+          textStyle: {
+            fontSize: 15,
+            color: "#334155",
+            fontWeight: 700
+          }
+        },
+        series: [
+          {
+            name: selectedProvince,
+            type: "line",
+            smooth: true,
+            symbol: "circle",
+            symbolSize: 8,
+            lineStyle: {
+              width: 4,
+              color: "#2563eb"
+            },
+            areaStyle: {
+              color: "rgba(37,99,235,0.12)"
+            },
+            itemStyle: {
+              color: "#2563eb"
+            },
+            data: values.map((v, i) => ({
+              value: v,
+              itemStyle: {
+                color: years[i] === currentYear ? "#f97316" : "#2563eb"
+              }
+            })),
+            markLine: {
+              symbol: "none",
+              lineStyle: {
+                color: "#94a3b8",
+                type: "dashed"
+              },
+              data: [{ yAxis: 0 }]
+            }
+          }
+        ]
+      };
+
+      trendChart.setOption(option, true);
+    }
+
+    function renderStructure() {
+      const data = getCurrentData();
+      const regions = ["东部", "中部", "西部", "东北"];
+
+      const growthData = regions.map(region => {
+        return data
+          .filter(d => d.region === region && d.value > 0)
+          .reduce((sum, d) => sum + d.value, 0);
+      });
+
+      const lossData = regions.map(region => {
+        return data
+          .filter(d => d.region === region && d.value < 0)
+          .reduce((sum, d) => sum + Math.abs(d.value), 0);
+      });
+
+      const option = {
+        tooltip: {
+          trigger: "axis",
+          axisPointer: { type: "shadow" }
+        },
+        legend: {
+          top: 8,
+          right: 18,
+          textStyle: {
+            color: "#475569"
+          }
+        },
+        grid: {
+          left: 58,
+          right: 28,
+          top: 58,
+          bottom: 42
+        },
+        xAxis: {
+          type: "category",
+          data: regions,
+          axisLabel: {
+            color: "#64748b",
+            fontSize: 12
+          }
+        },
+        yAxis: {
+          type: "value",
+          name: "万人",
+          nameGap: 14,
+          nameTextStyle: {
+            color: "#64748b",
+            fontSize: 12
+          },
+          axisLabel: {
+            color: "#64748b",
+            fontSize: 12,
+            margin: 10
+          },
+          splitLine: {
+            lineStyle: {
+              type: "dashed",
+              color: "#e2e8f0"
+            }
+          }
+        },
+        series: [
+          {
+            name: "人口增长",
+            type: "bar",
+            stack: "total",
+            data: growthData,
+            itemStyle: {
+              color: "#dc2626",
+              borderRadius: [8, 8, 0, 0]
+            }
+          },
+          {
+            name: "人口减少",
+            type: "bar",
+            stack: "total",
+            data: lossData.map(v => -v),
+            itemStyle: {
+              color: "#2563eb",
+              borderRadius: [0, 0, 8, 8]
+            }
+          }
+        ]
+      };
+
+      structureChart.setOption(option, true);
+    }
+
+    function updateAll() {
+      document.getElementById("yearText").innerText = currentYear;
+      renderMap();
+      renderRank();
+      renderTrend();
+      renderStructure();
+    }
+
+    document.getElementById("yearSlider").addEventListener("input", function(e) {
+      currentYear = Number(e.target.value);
+      updateAll();
+    });
+
+    window.addEventListener("resize", () => {
+      mapChart.resize();
+      rankChart.resize();
+      trendChart.resize();
+      structureChart.resize();
+    });
+
+    updateAll();
+  </script>
+</body>
+</html>

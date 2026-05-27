@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>房价变化分析 - 城市房价演化轨迹图</title>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+      background: #f4f7fb;
+      color: #1f2937;
+      letter-spacing: 0.4px;
+    }
+
+    .page {
+      width: 100vw;
+      min-height: 100vh;
+      padding: 24px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 18px;
+    }
+
+    .title-block h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .title-block p {
+      margin: 8px 0 0;
+      color: #64748b;
+      font-size: 14px;
+      line-height: 1.8;
+      letter-spacing: 1px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .btn {
+      border: none;
+      padding: 8px 14px;
+      border-radius: 20px;
+      background: #e2e8f0;
+      color: #334155;
+      cursor: pointer;
+      font-size: 13px;
+      transition: 0.2s;
+      letter-spacing: 1px;
+    }
+
+    .btn.active {
+      background: #2563eb;
+      color: white;
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 2.1fr 1fr;
+      gap: 18px;
+      height: calc(100vh - 128px);
+      min-height: 650px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.94);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      overflow: hidden;
+    }
+
+    .main-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-title {
+      padding: 18px 22px 8px;
+    }
+
+    .card-title h2 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: 1.5px;
+    }
+
+    .card-title p {
+      margin: 8px 0 0;
+      font-size: 13px;
+      color: #64748b;
+      line-height: 1.7;
+    }
+
+    #lineChart {
+      flex: 1;
+      min-height: 520px;
+    }
+
+    .side {
+      display: grid;
+      grid-template-rows: 1.15fr 0.85fr;
+      gap: 18px;
+      min-height: 0;
+    }
+
+    #ringChart {
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
+    }
+
+    .info-card {
+      padding: 20px;
+    }
+
+    .info-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .city-name {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .year-badge {
+      padding: 5px 12px;
+      border-radius: 16px;
+      background: #eff6ff;
+      color: #2563eb;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .metric {
+      background: #f8fafc;
+      border-radius: 14px;
+      padding: 14px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .metric .label {
+      color: #64748b;
+      font-size: 12px;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    .metric .value {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .up {
+      color: #dc2626;
+    }
+
+    .down {
+      color: #2563eb;
+    }
+
+    .compare {
+      margin-top: 10px;
+    }
+
+    .compare-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 74px 1fr 56px;
+      align-items: center;
+      gap: 10px;
+      margin: 10px 0;
+      font-size: 12px;
+      color: #475569;
+    }
+
+    .bar-bg {
+      height: 10px;
+      background: #e2e8f0;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .bar {
+      height: 100%;
+      width: 40%;
+      border-radius: 20px;
+      background: linear-gradient(90deg, #60a5fa, #2563eb);
+    }
+
+    .note {
+      margin-top: 14px;
+      padding: 12px;
+      border-radius: 12px;
+      background: #fff7ed;
+      color: #9a3412;
+      font-size: 12px;
+      line-height: 1.7;
+      letter-spacing: 0.8px;
+    }
+
+    @media (max-width: 1050px) {
+      .layout {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+
+      .side {
+        grid-template-rows: 420px auto;
+      }
+
+      #lineChart {
+        height: 540px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <div class="header">
+      <div class="title-block">
+        <h1>房价变化分析</h1>
+        <p>主视图：城市房价演化轨迹图；辅助视图：城市房价涨幅年轮图。点击折线节点，可查看当年涨幅、累计涨幅、排名变化和区域对比。</p>
+      </div>
+
+      <div class="controls" id="cityControls"></div>
+    </div>
+
+    <div class="layout">
+      <div class="card main-card">
+        <div class="card-title">
+          <h2>城市房价演化轨迹图</h2>
+          <p>折线表示房价指数变化，节点字形表示年度涨跌方向：上三角表示上涨，下三角表示下降，节点越大表示涨跌幅越明显。</p>
+        </div>
+        <div id="lineChart"></div>
+      </div>
+
+      <div class="side">
+        <div class="card">
+          <div class="card-title">
+            <h2>城市房价涨幅年轮图</h2>
+            <p>每一段圆弧代表一个年份，颜色表示涨跌方向，选中年份会在年轮中突出显示。</p>
+          </div>
+          <div id="ringChart"></div>
+        </div>
+
+        <div class="card info-card">
+          <div class="info-head">
+            <div class="city-name" id="infoCity">北京</div>
+            <div class="year-badge" id="infoYear">2024</div>
+          </div>
+
+          <div class="metric-grid">
+            <div class="metric">
+              <div class="label">房价指数</div>
+              <div class="value" id="infoIndex">132.5</div>
+            </div>
+            <div class="metric">
+              <div class="label">当年涨幅</div>
+              <div class="value up" id="infoGrowth">+2.6%</div>
+            </div>
+            <div class="metric">
+              <div class="label">累计涨幅</div>
+              <div class="value up" id="infoTotal">+32.5%</div>
+            </div>
+            <div class="metric">
+              <div class="label">涨幅排名变化</div>
+              <div class="value" id="infoRank">↑ 2</div>
+            </div>
+          </div>
+
+          <div class="compare">
+            <div class="compare-title">区域对比</div>
+
+            <div class="bar-row">
+              <span>本城市</span>
+              <div class="bar-bg"><div class="bar" id="barCity"></div></div>
+              <span id="barCityText">2.6%</span>
+            </div>
+
+            <div class="bar-row">
+              <span>区域均值</span>
+              <div class="bar-bg"><div class="bar" id="barRegion"></div></div>
+              <span id="barRegionText">1.8%</span>
+            </div>
+
+            <div class="bar-row">
+              <span>全国均值</span>
+              <div class="bar-bg"><div class="bar" id="barNational"></div></div>
+              <span id="barNationalText">1.2%</span>
+            </div>
+          </div>
+
+          <div class="note" id="infoNote">
+            北京在 2024 年房价涨幅高于全国平均水平，说明其住房市场仍保持较强韧性。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const years = [2018, 2019, 2020, 2021, 2022, 2023, 2024];
+
+    const cityData = {
+      "北京": {
+        region: "东部",
+        values: [100, 106.2, 112.8, 121.5, 126.4, 129.1, 132.5],
+        rank: [3, 2, 2, 1, 2, 4, 2]
+      },
+      "上海": {
+        region: "东部",
+        values: [100, 105.4, 111.6, 119.8, 124.7, 127.6, 131.2],
+        rank: [4, 3, 3, 2, 3, 3, 3]
+      },
+      "深圳": {
+        region: "东部",
+        values: [100, 108.7, 119.4, 130.2, 132.8, 131.6, 134.1],
+        rank: [1, 1, 1, 1, 1, 5, 1]
+      },
+      "成都": {
+        region: "西部",
+        values: [100, 103.1, 107.4, 113.2, 118.5, 121.3, 125.6],
+        rank: [7, 6, 5, 4, 4, 4, 4]
+      },
+      "武汉": {
+        region: "中部",
+        values: [100, 102.6, 105.9, 110.4, 112.1, 111.3, 113.7],
+        rank: [8, 7, 7, 6, 7, 8, 7]
+      },
+      "郑州": {
+        region: "中部",
+        values: [100, 101.8, 104.2, 107.6, 106.4, 104.8, 105.9],
+        rank: [9, 8, 8, 8, 9, 9, 9]
+      }
+    };
+
+    const regionGrowth = {
+      "东部": [0, 5.8, 6.1, 7.3, 3.8, 1.6, 2.4],
+      "中部": [0, 2.2, 3.0, 3.6, 0.8, -0.7, 1.5],
+      "西部": [0, 3.0, 4.1, 5.2, 4.0, 2.1, 3.2]
+    };
+
+    const nationalGrowth = [0, 3.8, 4.2, 5.4, 2.6, 0.9, 1.8];
+
+    let selectedCities = ["北京", "上海", "深圳", "成都"];
+    let currentCity = "北京";
+    let currentYear = 2024;
+
+    const lineChart = echarts.init(document.getElementById("lineChart"));
+    const ringChart = echarts.init(document.getElementById("ringChart"));
+
+    function calcGrowth(values) {
+      return values.map((v, i) => {
+        if (i === 0) return 0;
+        return ((v - values[i - 1]) / values[i - 1]) * 100;
+      });
+    }
+
+    function formatPct(v) {
+      const sign = v > 0 ? "+" : "";
+      return sign + v.toFixed(1) + "%";
+    }
+
+    function getYearIndex(year) {
+      return years.indexOf(year);
+    }
+
+    function renderControls() {
+      const container = document.getElementById("cityControls");
+      container.innerHTML = "";
+
+      Object.keys(cityData).forEach(city => {
+        const btn = document.createElement("button");
+        btn.className = "btn" + (selectedCities.includes(city) ? " active" : "");
+        btn.innerText = city;
+
+        btn.onclick = () => {
+          if (selectedCities.includes(city)) {
+            if (selectedCities.length > 1) {
+              selectedCities = selectedCities.filter(c => c !== city);
+            }
+          } else {
+            selectedCities.push(city);
+          }
+
+          currentCity = city;
+          renderControls();
+          renderLineChart();
+          renderRingChart();
+          updateInfo();
+        };
+
+        container.appendChild(btn);
+      });
+    }
+
+    function renderLineChart() {
+      const series = selectedCities.map(city => {
+        const values = cityData[city].values;
+        const growth = calcGrowth(values);
+
+        return {
+          name: city,
+          type: "line",
+          smooth: true,
+          symbol: function(value, params) {
+            const g = growth[params.dataIndex];
+            if (g >= 0) return "triangle";
+            return "path://M0,10 L10,10 L5,0 Z";
+          },
+          symbolSize: function(value, params) {
+            const g = Math.abs(growth[params.dataIndex]);
+            return 8 + g * 1.3;
+          },
+          lineStyle: {
+            width: city === currentCity ? 4 : 2
+          },
+          emphasis: {
+            focus: "series"
+          },
+          data: values.map((v, i) => ({
+            value: v,
+            growth: growth[i],
+            city,
+            year: years[i]
+          }))
+        };
+      });
+
+      const option = {
+        color: ["#2563eb", "#c13131", "#f97316", "#16a34a", "#9333ea", "#0891b2"],
+        tooltip: {
+          trigger: "item",
+          backgroundColor: "rgba(15,23,42,0.92)",
+          borderColor: "transparent",
+          textStyle: {
+            color: "#fff"
+          },
+          formatter: function(params) {
+            const d = params.data;
+            return `
+              <strong>${d.city} · ${d.year}</strong><br/>
+              房价指数：${d.value.toFixed(1)}<br/>
+              当年涨幅：${formatPct(d.growth)}
+            `;
+          }
+        },
+        legend: {
+          top: 4,
+          right: 24,
+          itemGap: 18,
+          textStyle: {
+            color: "#475569"
+          }
+        },
+        grid: {
+          left: 58,
+          right: 42,
+          top: 72,
+          bottom: 52
+        },
+        xAxis: {
+          type: "category",
+          data: years,
+          axisLine: { lineStyle: { color: "#cbd5e1" } },
+          axisLabel: {
+            color: "#64748b",
+            fontSize: 12
+          }
+        },
+        yAxis: {
+          type: "value",
+          name: "房价指数（2018=100）",
+          nameTextStyle: {
+            color: "#64748b",
+            padding: [0, 0, 8, 0]
+          },
+          min: 96,
+          max: 138,
+          splitLine: {
+            lineStyle: {
+              color: "#e2e8f0",
+              type: "dashed"
+            }
+          },
+          axisLabel: {
+            color: "#64748b"
+          }
+        },
+        markArea: {
+          silent: true,
+          itemStyle: {
+            color: "rgba(37,99,235,0.05)"
+          }
+        },
+        series: [
+          {
+            name: "快速上涨阶段",
+            type: "line",
+            data: [],
+            markArea: {
+              silent: true,
+              itemStyle: {
+                color: "rgba(249,115,22,0.08)"
+              },
+              label: {
+                color: "#f97316",
+                fontSize: 12
+              },
+              data: [
+                [
+                  { name: "快速上涨阶段", xAxis: "2020" },
+                  { xAxis: "2021" }
+                ]
+              ]
+            }
+          },
+          ...series
+        ]
+      };
+
+      lineChart.setOption(option, true);
+
+      lineChart.off("click");
+      lineChart.on("click", function(params) {
+        if (!params.data || !params.data.city) return;
+        currentCity = params.data.city;
+        currentYear = params.data.year;
+        renderLineChart();
+        renderRingChart();
+        updateInfo();
+      });
+    }
+
+    function renderRingChart() {
+      const values = cityData[currentCity].values;
+      const growth = calcGrowth(values);
+      const selectedIndex = getYearIndex(currentYear);
+
+      const data = years.map((year, i) => {
+        const g = growth[i];
+        return {
+          name: String(year),
+          value: Math.max(Math.abs(g), 0.4),
+          growth: g,
+          itemStyle: {
+            color: i === selectedIndex
+              ? "#f97316"
+              : g >= 0
+                ? "rgba(220, 38, 38, 0.75)"
+                : "rgba(37, 99, 235, 0.75)",
+            borderColor: i === selectedIndex ? "#111827" : "#ffffff",
+            borderWidth: i === selectedIndex ? 3 : 1
+          }
+        };
+      });
+
+      const option = {
+        tooltip: {
+          trigger: "item",
+          backgroundColor: "rgba(15,23,42,0.92)",
+          borderColor: "transparent",
+          textStyle: {
+            color: "#fff"
+          },
+          formatter: function(params) {
+            return `${currentCity} · ${params.name}<br/>年度涨幅：${formatPct(params.data.growth)}`;
+          }
+        },
+        graphic: [
+          {
+            type: "text",
+            left: "center",
+            top: "42%",
+            style: {
+              text: currentCity,
+              textAlign: "center",
+              fill: "#0f172a",
+              fontSize: 24,
+              fontWeight: 700
+            }
+          },
+          {
+            type: "text",
+            left: "center",
+            top: "53%",
+            style: {
+              text: `${currentYear} 年 ${formatPct(growth[selectedIndex])}`,
+              textAlign: "center",
+              fill: growth[selectedIndex] >= 0 ? "#dc2626" : "#2563eb",
+              fontSize: 15,
+              fontWeight: 600
+            }
+          }
+        ],
+        series: [
+          {
+            name: "涨幅年轮",
+            type: "pie",
+            radius: ["48%", "78%"],
+            center: ["50%", "50%"],
+            roseType: "area",
+            avoidLabelOverlap: true,
+            label: {
+              color: "#475569",
+              formatter: "{b}",
+              fontSize: 11
+            },
+            labelLine: {
+              length: 8,
+              length2: 6
+            },
+            data
+          }
+        ]
+      };
+
+      ringChart.setOption(option, true);
+
+      ringChart.off("click");
+      ringChart.on("click", function(params) {
+        currentYear = Number(params.name);
+        renderRingChart();
+        updateInfo();
+      });
+    }
+
+    function updateInfo() {
+      const city = currentCity;
+      const cityObj = cityData[city];
+      const values = cityObj.values;
+      const growth = calcGrowth(values);
+      const idx = getYearIndex(currentYear);
+      const base = values[0];
+      const indexValue = values[idx];
+      const yearGrowth = growth[idx];
+      const totalGrowth = ((indexValue - base) / base) * 100;
+
+      const previousRank = idx > 0 ? cityObj.rank[idx - 1] : cityObj.rank[idx];
+      const currentRank = cityObj.rank[idx];
+      const rankChange = previousRank - currentRank;
+
+      const region = cityObj.region;
+      const regionAvg = regionGrowth[region][idx];
+      const nationalAvg = nationalGrowth[idx];
+
+      document.getElementById("infoCity").innerText = city;
+      document.getElementById("infoYear").innerText = currentYear;
+      document.getElementById("infoIndex").innerText = indexValue.toFixed(1);
+
+      const infoGrowth = document.getElementById("infoGrowth");
+      infoGrowth.innerText = formatPct(yearGrowth);
+      infoGrowth.className = "value " + (yearGrowth >= 0 ? "up" : "down");
+
+      const infoTotal = document.getElementById("infoTotal");
+      infoTotal.innerText = formatPct(totalGrowth);
+      infoTotal.className = "value " + (totalGrowth >= 0 ? "up" : "down");
+
+      let rankText = "—";
+      if (idx > 0) {
+        if (rankChange > 0) rankText = "↑ " + rankChange;
+        else if (rankChange < 0) rankText = "↓ " + Math.abs(rankChange);
+        else rankText = "持平";
+      }
+      document.getElementById("infoRank").innerText = rankText;
+
+      updateBar("barCity", "barCityText", yearGrowth);
+      updateBar("barRegion", "barRegionText", regionAvg);
+      updateBar("barNational", "barNationalText", nationalAvg);
+
+      const compareText = yearGrowth >= nationalAvg
+        ? "高于全国平均水平，说明该城市住房市场表现相对活跃。"
+        : "低于全国平均水平，说明该城市房价变化相对平缓或存在回调压力。";
+
+      document.getElementById("infoNote").innerText =
+        `${city} 在 ${currentYear} 年房价涨幅为 ${formatPct(yearGrowth)}，` +
+        `累计涨幅为 ${formatPct(totalGrowth)}，${compareText}`;
+    }
+
+    function updateBar(barId, textId, value) {
+      const max = 10;
+      const width = Math.min(Math.abs(value) / max * 100, 100);
+      const bar = document.getElementById(barId);
+      bar.style.width = width + "%";
+      bar.style.background = value >= 0
+        ? "linear-gradient(90deg, #fca5a5, #dc2626)"
+        : "linear-gradient(90deg, #93c5fd, #2563eb)";
+      document.getElementById(textId).innerText = formatPct(value);
+    }
+
+    window.addEventListener("resize", () => {
+      lineChart.resize();
+      ringChart.resize();
+    });
+
+    renderControls();
+    renderLineChart();
+    renderRingChart();
+    updateInfo();
+  </script>
+</body>
+</html>
