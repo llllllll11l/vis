@@ -1,0 +1,1330 @@
+[
+  {
+    "city": "北京",
+    "province": "北京",
+    "region": "东部",
+    "coordinate": [
+      116.3722,
+      39.9275
+    ],
+    "source_city": "Beijing",
+    "population_scope": "UN WUP DEGURBA city/urban centre population estimate",
+    "series": [
+      {
+        "year": 2015,
+        "population": 1543.2,
+        "population_growth": 0.0,
+        "growth_rate": 0.0,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 1564.2,
+        "population_growth": 21.0,
+        "growth_rate": 1.36,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 1585.3,
+        "population_growth": 21.1,
+        "growth_rate": 1.35,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 1606.3,
+        "population_growth": 21.0,
+        "growth_rate": 1.32,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 1627.4,
+        "population_growth": 21.1,
+        "growth_rate": 1.31,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 1648.4,
+        "population_growth": 21.0,
+        "growth_rate": 1.29,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 1659.0,
+        "population_growth": 10.6,
+        "growth_rate": 0.64,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2022,
+        "population": 1669.6,
+        "population_growth": 10.6,
+        "growth_rate": 0.64,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2023,
+        "population": 1680.2,
+        "population_growth": 10.6,
+        "growth_rate": 0.63,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2024,
+        "population": 1690.7,
+        "population_growth": 10.5,
+        "growth_rate": 0.62,
+        "population_change_type": "increase"
+      }
+    ]
+  },
+  {
+    "city": "上海",
+    "province": "上海",
+    "region": "东部",
+    "coordinate": [
+      121.4369,
+      31.2148
+    ],
+    "source_city": "Shanghai",
+    "population_scope": "UN WUP DEGURBA city/urban centre population estimate",
+    "series": [
+      {
+        "year": 2015,
+        "population": 2383.1,
+        "population_growth": 0.0,
+        "growth_rate": 0.0,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 2459.5,
+        "population_growth": 76.4,
+        "growth_rate": 3.21,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 2536.0,
+        "population_growth": 76.5,
+        "growth_rate": 3.11,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 2612.5,
+        "population_growth": 76.5,
+        "growth_rate": 3.02,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 2689.0,
+        "population_growth": 76.5,
+        "growth_rate": 2.93,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 2765.4,
+        "population_growth": 76.4,
+        "growth_rate": 2.84,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 2803.5,
+        "population_growth": 38.1,
+        "growth_rate": 1.38,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2022,
+        "population": 2841.6,
+        "population_growth": 38.1,
+        "growth_rate": 1.36,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2023,
+        "population": 2879.7,
+        "population_growth": 38.1,
+        "growth_rate": 1.34,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2024,
+        "population": 2917.8,
+        "population_growth": 38.1,
+        "growth_rate": 1.32,
+        "population_change_type": "increase"
+      }
+    ]
+  },
+  {
+    "city": "深圳",
+    "province": "广东",
+    "region": "东部",
+    "coordinate": [
+      114.0066,
+      22.7078
+    ],
+    "source_city": "Shenzhen",
+    "population_scope": "UN WUP DEGURBA city/urban centre population estimate",
+    "series": [
+      {
+        "year": 2015,
+        "population": 1248.6,
+        "population_growth": 0.0,
+        "growth_rate": 0.0,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 1267.5,
+        "population_growth": 18.9,
+        "growth_rate": 1.51,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 1286.5,
+        "population_growth": 19.0,
+        "growth_rate": 1.5,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 1305.5,
+        "population_growth": 19.0,
+        "growth_rate": 1.48,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 1324.4,
+        "population_growth": 18.9,
+        "growth_rate": 1.45,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 1343.4,
+        "population_growth": 19.0,
+        "growth_rate": 1.43,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 1352.3,
+        "population_growth": 8.9,
+        "growth_rate": 0.66,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2022,
+        "population": 1361.2,
+        "population_growth": 8.9,
+        "growth_rate": 0.66,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2023,
+        "population": 1370.1,
+        "population_growth": 8.9,
+        "growth_rate": 0.65,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2024,
+        "population": 1378.9,
+        "population_growth": 8.8,
+        "growth_rate": 0.64,
+        "population_change_type": "increase"
+      }
+    ]
+  },
+  {
+    "city": "广州",
+    "province": "广东",
+    "region": "东部",
+    "coordinate": [
+      113.2859,
+      23.1423
+    ],
+    "source_city": "Guangzhou",
+    "population_scope": "UN WUP DEGURBA city/urban centre population estimate",
+    "series": [
+      {
+        "year": 2015,
+        "population": 2532.1,
+        "population_growth": 0.0,
+        "growth_rate": 0.0,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 2555.8,
+        "population_growth": 23.7,
+        "growth_rate": 0.94,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 2579.6,
+        "population_growth": 23.8,
+        "growth_rate": 0.93,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 2603.3,
+        "population_growth": 23.7,
+        "growth_rate": 0.92,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 2627.1,
+        "population_growth": 23.8,
+        "growth_rate": 0.91,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 2650.8,
+        "population_growth": 23.7,
+        "growth_rate": 0.9,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 2671.9,
+        "population_growth": 21.1,
+        "growth_rate": 0.8,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2022,
+        "population": 2693.0,
+        "population_growth": 21.1,
+        "growth_rate": 0.79,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2023,
+        "population": 2714.1,
+        "population_growth": 21.1,
+        "growth_rate": 0.78,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2024,
+        "population": 2735.2,
+        "population_growth": 21.1,
+        "growth_rate": 0.78,
+        "population_change_type": "increase"
+      }
+    ]
+  },
+  {
+    "city": "杭州",
+    "province": "浙江",
+    "region": "东部",
+    "coordinate": [
+      120.2512,
+      30.2813
+    ],
+    "source_city": "Hangzhou",
+    "population_scope": "UN WUP DEGURBA city/urban centre population estimate",
+    "series": [
+      {
+        "year": 2015,
+        "population": 686.2,
+        "population_growth": 0.0,
+        "growth_rate": 0.0,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 686.3,
+        "population_growth": 0.1,
+        "growth_rate": 0.01,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 686.3,
+        "population_growth": 0.0,
+        "growth_rate": 0.0,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2018,
+        "population": 686.3,
+        "population_growth": 0.0,
+        "growth_rate": 0.0,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2019,
+        "population": 686.3,
+        "population_growth": 0.0,
+        "growth_rate": 0.0,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2020,
+        "population": 686.4,
+        "population_growth": 0.1,
+        "growth_rate": 0.01,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 699.1,
+        "population_growth": 12.7,
+        "growth_rate": 1.85,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2022,
+        "population": 711.8,
+        "population_growth": 12.7,
+        "growth_rate": 1.82,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2023,
+        "population": 724.6,
+        "population_growth": 12.8,
+        "growth_rate": 1.8,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2024,
+        "population": 737.3,
+        "population_growth": 12.7,
+        "growth_rate": 1.75,
+        "population_change_type": "increase"
+      }
+    ]
+  },
+  {
+    "city": "南京",
+    "province": "江苏",
+    "region": "东部",
+    "coordinate": [
+      118.7777,
+      32.0355
+    ],
+    "source_city": "Nanjing",
+    "population_scope": "UN WUP DEGURBA city/urban centre population estimate",
+    "series": [
+      {
+        "year": 2015,
+        "population": 594.2,
+        "population_growth": 0.0,
+        "growth_rate": 0.0,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 611.3,
+        "population_growth": 17.1,
+        "growth_rate": 2.88,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 628.3,
+        "population_growth": 17.0,
+        "growth_rate": 2.78,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 645.3,
+        "population_growth": 17.0,
+        "growth_rate": 2.71,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 662.4,
+        "population_growth": 17.1,
+        "growth_rate": 2.65,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 679.4,
+        "population_growth": 17.0,
+        "growth_rate": 2.57,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 679.5,
+        "population_growth": 0.1,
+        "growth_rate": 0.01,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2022,
+        "population": 679.7,
+        "population_growth": 0.2,
+        "growth_rate": 0.03,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2023,
+        "population": 679.8,
+        "population_growth": 0.1,
+        "growth_rate": 0.01,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2024,
+        "population": 679.9,
+        "population_growth": 0.1,
+        "growth_rate": 0.01,
+        "population_change_type": "increase"
+      }
+    ]
+  },
+  {
+    "city": "成都",
+    "province": "四川",
+    "region": "西部",
+    "coordinate": [
+      104.046,
+      30.6723
+    ],
+    "source_city": "Chengdu",
+    "population_scope": "UN WUP DEGURBA city/urban centre population estimate",
+    "series": [
+      {
+        "year": 2015,
+        "population": 674.4,
+        "population_growth": 0.0,
+        "growth_rate": 0.0,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 664.9,
+        "population_growth": -9.5,
+        "growth_rate": -1.41,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2017,
+        "population": 655.4,
+        "population_growth": -9.5,
+        "growth_rate": -1.43,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2018,
+        "population": 645.9,
+        "population_growth": -9.5,
+        "growth_rate": -1.45,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2019,
+        "population": 636.4,
+        "population_growth": -9.5,
+        "growth_rate": -1.47,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2020,
+        "population": 626.9,
+        "population_growth": -9.5,
+        "growth_rate": -1.49,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2021,
+        "population": 624.3,
+        "population_growth": -2.6,
+        "growth_rate": -0.41,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2022,
+        "population": 621.7,
+        "population_growth": -2.6,
+        "growth_rate": -0.42,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2023,
+        "population": 619.2,
+        "population_growth": -2.5,
+        "growth_rate": -0.4,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 616.6,
+        "population_growth": -2.6,
+        "growth_rate": -0.42,
+        "population_change_type": "decrease"
+      }
+    ]
+  },
+  {
+    "city": "重庆",
+    "province": "重庆",
+    "region": "西部",
+    "coordinate": [
+      106.516,
+      29.5454
+    ],
+    "source_city": "Chongqing",
+    "population_scope": "UN WUP DEGURBA city/urban centre population estimate",
+    "series": [
+      {
+        "year": 2015,
+        "population": 590.7,
+        "population_growth": 0.0,
+        "growth_rate": 0.0,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 616.7,
+        "population_growth": 26.0,
+        "growth_rate": 4.4,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 642.7,
+        "population_growth": 26.0,
+        "growth_rate": 4.22,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 668.6,
+        "population_growth": 25.9,
+        "growth_rate": 4.03,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 694.6,
+        "population_growth": 26.0,
+        "growth_rate": 3.89,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 720.6,
+        "population_growth": 26.0,
+        "growth_rate": 3.74,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 717.9,
+        "population_growth": -2.7,
+        "growth_rate": -0.37,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2022,
+        "population": 715.2,
+        "population_growth": -2.7,
+        "growth_rate": -0.38,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2023,
+        "population": 712.5,
+        "population_growth": -2.7,
+        "growth_rate": -0.38,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 709.8,
+        "population_growth": -2.7,
+        "growth_rate": -0.38,
+        "population_change_type": "decrease"
+      }
+    ]
+  },
+  {
+    "city": "西安",
+    "province": "陕西",
+    "region": "西部",
+    "coordinate": [
+      108.9468,
+      34.2549
+    ],
+    "source_city": "Xi'an",
+    "population_scope": "UN WUP DEGURBA city/urban centre population estimate",
+    "series": [
+      {
+        "year": 2015,
+        "population": 501.0,
+        "population_growth": 0.0,
+        "growth_rate": 0.0,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 506.3,
+        "population_growth": 5.3,
+        "growth_rate": 1.06,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 511.6,
+        "population_growth": 5.3,
+        "growth_rate": 1.05,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 516.9,
+        "population_growth": 5.3,
+        "growth_rate": 1.04,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 522.2,
+        "population_growth": 5.3,
+        "growth_rate": 1.03,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 527.5,
+        "population_growth": 5.3,
+        "growth_rate": 1.01,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 526.6,
+        "population_growth": -0.9,
+        "growth_rate": -0.17,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2022,
+        "population": 525.8,
+        "population_growth": -0.8,
+        "growth_rate": -0.15,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2023,
+        "population": 524.9,
+        "population_growth": -0.9,
+        "growth_rate": -0.17,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 524.0,
+        "population_growth": -0.9,
+        "growth_rate": -0.17,
+        "population_change_type": "decrease"
+      }
+    ]
+  },
+  {
+    "city": "武汉",
+    "province": "湖北",
+    "region": "中部",
+    "coordinate": [
+      114.2968,
+      30.5661
+    ],
+    "source_city": "Wuhan",
+    "population_scope": "UN WUP DEGURBA city/urban centre population estimate",
+    "series": [
+      {
+        "year": 2015,
+        "population": 707.3,
+        "population_growth": 0.0,
+        "growth_rate": 0.0,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 717.0,
+        "population_growth": 9.7,
+        "growth_rate": 1.37,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 726.7,
+        "population_growth": 9.7,
+        "growth_rate": 1.35,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 736.4,
+        "population_growth": 9.7,
+        "growth_rate": 1.33,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 746.2,
+        "population_growth": 9.8,
+        "growth_rate": 1.33,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 755.9,
+        "population_growth": 9.7,
+        "growth_rate": 1.3,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 752.0,
+        "population_growth": -3.9,
+        "growth_rate": -0.52,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2022,
+        "population": 748.1,
+        "population_growth": -3.9,
+        "growth_rate": -0.52,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2023,
+        "population": 744.2,
+        "population_growth": -3.9,
+        "growth_rate": -0.52,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 740.3,
+        "population_growth": -3.9,
+        "growth_rate": -0.52,
+        "population_change_type": "decrease"
+      }
+    ]
+  },
+  {
+    "city": "长沙",
+    "province": "湖南",
+    "region": "中部",
+    "coordinate": [
+      112.989,
+      28.1923
+    ],
+    "source_city": "Changsha",
+    "population_scope": "UN WUP DEGURBA city/urban centre population estimate",
+    "series": [
+      {
+        "year": 2015,
+        "population": 345.1,
+        "population_growth": 0.0,
+        "growth_rate": 0.0,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 344.6,
+        "population_growth": -0.5,
+        "growth_rate": -0.14,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2017,
+        "population": 344.1,
+        "population_growth": -0.5,
+        "growth_rate": -0.15,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2018,
+        "population": 343.7,
+        "population_growth": -0.4,
+        "growth_rate": -0.12,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2019,
+        "population": 343.2,
+        "population_growth": -0.5,
+        "growth_rate": -0.15,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2020,
+        "population": 342.7,
+        "population_growth": -0.5,
+        "growth_rate": -0.15,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2021,
+        "population": 343.3,
+        "population_growth": 0.6,
+        "growth_rate": 0.18,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2022,
+        "population": 343.9,
+        "population_growth": 0.6,
+        "growth_rate": 0.17,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2023,
+        "population": 344.5,
+        "population_growth": 0.6,
+        "growth_rate": 0.17,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2024,
+        "population": 345.1,
+        "population_growth": 0.6,
+        "growth_rate": 0.17,
+        "population_change_type": "increase"
+      }
+    ]
+  },
+  {
+    "city": "郑州",
+    "province": "河南",
+    "region": "中部",
+    "coordinate": [
+      113.6531,
+      34.767
+    ],
+    "source_city": "Zhengzhou",
+    "population_scope": "UN WUP DEGURBA city/urban centre population estimate",
+    "series": [
+      {
+        "year": 2015,
+        "population": 443.3,
+        "population_growth": 0.0,
+        "growth_rate": 0.0,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 452.7,
+        "population_growth": 9.4,
+        "growth_rate": 2.12,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 462.1,
+        "population_growth": 9.4,
+        "growth_rate": 2.08,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 471.5,
+        "population_growth": 9.4,
+        "growth_rate": 2.03,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 480.9,
+        "population_growth": 9.4,
+        "growth_rate": 1.99,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 490.4,
+        "population_growth": 9.5,
+        "growth_rate": 1.98,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 489.8,
+        "population_growth": -0.6,
+        "growth_rate": -0.12,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2022,
+        "population": 489.3,
+        "population_growth": -0.5,
+        "growth_rate": -0.1,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2023,
+        "population": 488.8,
+        "population_growth": -0.5,
+        "growth_rate": -0.1,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 488.3,
+        "population_growth": -0.5,
+        "growth_rate": -0.1,
+        "population_change_type": "decrease"
+      }
+    ]
+  },
+  {
+    "city": "合肥",
+    "province": "安徽",
+    "region": "中部",
+    "coordinate": [
+      117.2671,
+      31.8472
+    ],
+    "source_city": "Hefei",
+    "population_scope": "UN WUP DEGURBA city/urban centre population estimate",
+    "series": [
+      {
+        "year": 2015,
+        "population": 420.2,
+        "population_growth": 0.0,
+        "growth_rate": 0.0,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 433.3,
+        "population_growth": 13.1,
+        "growth_rate": 3.12,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 446.4,
+        "population_growth": 13.1,
+        "growth_rate": 3.02,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 459.5,
+        "population_growth": 13.1,
+        "growth_rate": 2.93,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 472.6,
+        "population_growth": 13.1,
+        "growth_rate": 2.85,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 485.8,
+        "population_growth": 13.2,
+        "growth_rate": 2.79,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 485.9,
+        "population_growth": 0.1,
+        "growth_rate": 0.02,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2022,
+        "population": 486.1,
+        "population_growth": 0.2,
+        "growth_rate": 0.04,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2023,
+        "population": 486.3,
+        "population_growth": 0.2,
+        "growth_rate": 0.04,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2024,
+        "population": 486.5,
+        "population_growth": 0.2,
+        "growth_rate": 0.04,
+        "population_change_type": "increase"
+      }
+    ]
+  },
+  {
+    "city": "沈阳",
+    "province": "辽宁",
+    "region": "东北",
+    "coordinate": [
+      123.389,
+      41.7968
+    ],
+    "source_city": "Shenyang",
+    "population_scope": "UN WUP DEGURBA city/urban centre population estimate",
+    "series": [
+      {
+        "year": 2015,
+        "population": 545.9,
+        "population_growth": 0.0,
+        "growth_rate": 0.0,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 552.3,
+        "population_growth": 6.4,
+        "growth_rate": 1.17,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 558.8,
+        "population_growth": 6.5,
+        "growth_rate": 1.18,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 565.3,
+        "population_growth": 6.5,
+        "growth_rate": 1.16,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 571.8,
+        "population_growth": 6.5,
+        "growth_rate": 1.15,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 578.3,
+        "population_growth": 6.5,
+        "growth_rate": 1.14,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 576.7,
+        "population_growth": -1.6,
+        "growth_rate": -0.28,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2022,
+        "population": 575.1,
+        "population_growth": -1.6,
+        "growth_rate": -0.28,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2023,
+        "population": 573.5,
+        "population_growth": -1.6,
+        "growth_rate": -0.28,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 571.9,
+        "population_growth": -1.6,
+        "growth_rate": -0.28,
+        "population_change_type": "decrease"
+      }
+    ]
+  },
+  {
+    "city": "长春",
+    "province": "吉林",
+    "region": "东北",
+    "coordinate": [
+      125.3014,
+      43.8757
+    ],
+    "source_city": "Changchun",
+    "population_scope": "UN WUP DEGURBA city/urban centre population estimate",
+    "series": [
+      {
+        "year": 2015,
+        "population": 324.6,
+        "population_growth": 0.0,
+        "growth_rate": 0.0,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 327.7,
+        "population_growth": 3.1,
+        "growth_rate": 0.96,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 330.7,
+        "population_growth": 3.0,
+        "growth_rate": 0.92,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 333.8,
+        "population_growth": 3.1,
+        "growth_rate": 0.94,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 336.8,
+        "population_growth": 3.0,
+        "growth_rate": 0.9,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 339.9,
+        "population_growth": 3.1,
+        "growth_rate": 0.92,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 338.9,
+        "population_growth": -1.0,
+        "growth_rate": -0.29,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2022,
+        "population": 337.9,
+        "population_growth": -1.0,
+        "growth_rate": -0.3,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2023,
+        "population": 337.0,
+        "population_growth": -0.9,
+        "growth_rate": -0.27,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 336.0,
+        "population_growth": -1.0,
+        "growth_rate": -0.3,
+        "population_change_type": "decrease"
+      }
+    ]
+  },
+  {
+    "city": "哈尔滨",
+    "province": "黑龙江",
+    "region": "东北",
+    "coordinate": [
+      126.659,
+      45.7443
+    ],
+    "source_city": "Harbin",
+    "population_scope": "UN WUP DEGURBA city/urban centre population estimate",
+    "series": [
+      {
+        "year": 2015,
+        "population": 412.8,
+        "population_growth": 0.0,
+        "growth_rate": 0.0,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 417.9,
+        "population_growth": 5.1,
+        "growth_rate": 1.24,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 423.0,
+        "population_growth": 5.1,
+        "growth_rate": 1.22,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 428.1,
+        "population_growth": 5.1,
+        "growth_rate": 1.21,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 433.2,
+        "population_growth": 5.1,
+        "growth_rate": 1.19,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 438.3,
+        "population_growth": 5.1,
+        "growth_rate": 1.18,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 438.2,
+        "population_growth": -0.1,
+        "growth_rate": -0.02,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2022,
+        "population": 438.0,
+        "population_growth": -0.2,
+        "growth_rate": -0.05,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2023,
+        "population": 437.9,
+        "population_growth": -0.1,
+        "growth_rate": -0.02,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 437.8,
+        "population_growth": -0.1,
+        "growth_rate": -0.02,
+        "population_change_type": "decrease"
+      }
+    ]
+  }
+]

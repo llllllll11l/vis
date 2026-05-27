@@ -1,0 +1,2792 @@
+[
+  {
+    "province": "北京",
+    "region": "东部",
+    "coordinate": [
+      116.4,
+      39.9
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 2188,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 86.71,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 2195,
+        "population_growth": 7,
+        "growth_rate": 0.32,
+        "urbanization_rate": 86.76,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 2194,
+        "population_growth": -1,
+        "growth_rate": -0.05,
+        "urbanization_rate": 86.93,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2018,
+        "population": 2192,
+        "population_growth": -2,
+        "growth_rate": -0.09,
+        "urbanization_rate": 87.09,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2019,
+        "population": 2190,
+        "population_growth": -2,
+        "growth_rate": -0.09,
+        "urbanization_rate": 87.35,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2020,
+        "population": 2189,
+        "population_growth": -1,
+        "growth_rate": -0.05,
+        "urbanization_rate": 87.55,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2021,
+        "population": 2189,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 87.5,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2022,
+        "population": 2184,
+        "population_growth": -5,
+        "growth_rate": -0.23,
+        "urbanization_rate": 87.57,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2023,
+        "population": 2186,
+        "population_growth": 2,
+        "growth_rate": 0.09,
+        "urbanization_rate": 87.83,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2024,
+        "population": 2183,
+        "population_growth": -3,
+        "growth_rate": -0.14,
+        "urbanization_rate": 88.22,
+        "population_change_type": "decrease"
+      }
+    ]
+  },
+  {
+    "province": "天津",
+    "region": "东部",
+    "coordinate": [
+      117.2,
+      39.12
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 1439,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 82.88,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 1443,
+        "population_growth": 4,
+        "growth_rate": 0.28,
+        "urbanization_rate": 83.27,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 1410,
+        "population_growth": -33,
+        "growth_rate": -2.29,
+        "urbanization_rate": 83.57,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2018,
+        "population": 1383,
+        "population_growth": -27,
+        "growth_rate": -1.91,
+        "urbanization_rate": 83.95,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2019,
+        "population": 1385,
+        "population_growth": 2,
+        "growth_rate": 0.14,
+        "urbanization_rate": 84.31,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 1387,
+        "population_growth": 2,
+        "growth_rate": 0.14,
+        "urbanization_rate": 84.7,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 1373,
+        "population_growth": -14,
+        "growth_rate": -1.01,
+        "urbanization_rate": 84.88,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2022,
+        "population": 1363,
+        "population_growth": -10,
+        "growth_rate": -0.73,
+        "urbanization_rate": 85.11,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2023,
+        "population": 1364,
+        "population_growth": 1,
+        "growth_rate": 0.07,
+        "urbanization_rate": 85.49,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2024,
+        "population": 1364,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 86.01,
+        "population_change_type": "flat"
+      }
+    ]
+  },
+  {
+    "province": "河北",
+    "region": "东部",
+    "coordinate": [
+      114.52,
+      38.05
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 7345,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 51.67,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 7375,
+        "population_growth": 30,
+        "growth_rate": 0.41,
+        "urbanization_rate": 53.87,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 7409,
+        "population_growth": 34,
+        "growth_rate": 0.46,
+        "urbanization_rate": 55.74,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 7426,
+        "population_growth": 17,
+        "growth_rate": 0.23,
+        "urbanization_rate": 57.33,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 7447,
+        "population_growth": 21,
+        "growth_rate": 0.28,
+        "urbanization_rate": 58.77,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 7464,
+        "population_growth": 17,
+        "growth_rate": 0.23,
+        "urbanization_rate": 60.07,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 7448,
+        "population_growth": -16,
+        "growth_rate": -0.21,
+        "urbanization_rate": 61.14,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2022,
+        "population": 7420,
+        "population_growth": -28,
+        "growth_rate": -0.38,
+        "urbanization_rate": 61.65,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2023,
+        "population": 7393,
+        "population_growth": -27,
+        "growth_rate": -0.36,
+        "urbanization_rate": 62.77,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 7378,
+        "population_growth": -15,
+        "growth_rate": -0.2,
+        "urbanization_rate": 63.42,
+        "population_change_type": "decrease"
+      }
+    ]
+  },
+  {
+    "province": "山西",
+    "region": "中部",
+    "coordinate": [
+      112.55,
+      37.87
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 3519,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 55.87,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 3514,
+        "population_growth": -5,
+        "growth_rate": -0.14,
+        "urbanization_rate": 57.27,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2017,
+        "population": 3510,
+        "population_growth": -4,
+        "growth_rate": -0.11,
+        "urbanization_rate": 58.59,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2018,
+        "population": 3502,
+        "population_growth": -8,
+        "growth_rate": -0.23,
+        "urbanization_rate": 59.85,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2019,
+        "population": 3497,
+        "population_growth": -5,
+        "growth_rate": -0.14,
+        "urbanization_rate": 61.29,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2020,
+        "population": 3490,
+        "population_growth": -7,
+        "growth_rate": -0.2,
+        "urbanization_rate": 62.53,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2021,
+        "population": 3480,
+        "population_growth": -10,
+        "growth_rate": -0.29,
+        "urbanization_rate": 63.42,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2022,
+        "population": 3481,
+        "population_growth": 1,
+        "growth_rate": 0.03,
+        "urbanization_rate": 63.96,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2023,
+        "population": 3466,
+        "population_growth": -15,
+        "growth_rate": -0.43,
+        "urbanization_rate": 64.97,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 3446,
+        "population_growth": -20,
+        "growth_rate": -0.58,
+        "urbanization_rate": 66.32,
+        "population_change_type": "decrease"
+      }
+    ]
+  },
+  {
+    "province": "内蒙古",
+    "region": "西部",
+    "coordinate": [
+      111.67,
+      40.82
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 2440,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 62.09,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 2436,
+        "population_growth": -4,
+        "growth_rate": -0.16,
+        "urbanization_rate": 63.4,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2017,
+        "population": 2433,
+        "population_growth": -3,
+        "growth_rate": -0.12,
+        "urbanization_rate": 64.6,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2018,
+        "population": 2422,
+        "population_growth": -11,
+        "growth_rate": -0.45,
+        "urbanization_rate": 65.51,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2019,
+        "population": 2415,
+        "population_growth": -7,
+        "growth_rate": -0.29,
+        "urbanization_rate": 66.46,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2020,
+        "population": 2403,
+        "population_growth": -12,
+        "growth_rate": -0.5,
+        "urbanization_rate": 67.48,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2021,
+        "population": 2400,
+        "population_growth": -3,
+        "growth_rate": -0.12,
+        "urbanization_rate": 68.21,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2022,
+        "population": 2401,
+        "population_growth": 1,
+        "growth_rate": 0.04,
+        "urbanization_rate": 68.6,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2023,
+        "population": 2396,
+        "population_growth": -5,
+        "growth_rate": -0.21,
+        "urbanization_rate": 69.58,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 2388,
+        "population_growth": -8,
+        "growth_rate": -0.33,
+        "urbanization_rate": 70.73,
+        "population_change_type": "decrease"
+      }
+    ]
+  },
+  {
+    "province": "辽宁",
+    "region": "东北",
+    "coordinate": [
+      123.43,
+      41.8
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 4338,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 68.05,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 4327,
+        "population_growth": -11,
+        "growth_rate": -0.25,
+        "urbanization_rate": 68.87,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2017,
+        "population": 4312,
+        "population_growth": -15,
+        "growth_rate": -0.35,
+        "urbanization_rate": 69.49,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2018,
+        "population": 4291,
+        "population_growth": -21,
+        "growth_rate": -0.49,
+        "urbanization_rate": 70.26,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2019,
+        "population": 4277,
+        "population_growth": -14,
+        "growth_rate": -0.33,
+        "urbanization_rate": 71.21,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2020,
+        "population": 4255,
+        "population_growth": -22,
+        "growth_rate": -0.51,
+        "urbanization_rate": 72.14,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2021,
+        "population": 4229,
+        "population_growth": -26,
+        "growth_rate": -0.61,
+        "urbanization_rate": 72.81,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2022,
+        "population": 4197,
+        "population_growth": -32,
+        "growth_rate": -0.76,
+        "urbanization_rate": 73,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2023,
+        "population": 4182,
+        "population_growth": -15,
+        "growth_rate": -0.36,
+        "urbanization_rate": 73.51,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 4155,
+        "population_growth": -27,
+        "growth_rate": -0.65,
+        "urbanization_rate": 74.18,
+        "population_change_type": "decrease"
+      }
+    ]
+  },
+  {
+    "province": "吉林",
+    "region": "东北",
+    "coordinate": [
+      125.32,
+      43.9
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 2613,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 57.64,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 2567,
+        "population_growth": -46,
+        "growth_rate": -1.76,
+        "urbanization_rate": 58.75,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2017,
+        "population": 2526,
+        "population_growth": -41,
+        "growth_rate": -1.6,
+        "urbanization_rate": 59.71,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2018,
+        "population": 2484,
+        "population_growth": -42,
+        "growth_rate": -1.66,
+        "urbanization_rate": 60.85,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2019,
+        "population": 2448,
+        "population_growth": -36,
+        "growth_rate": -1.45,
+        "urbanization_rate": 61.63,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2020,
+        "population": 2399,
+        "population_growth": -49,
+        "growth_rate": -2,
+        "urbanization_rate": 62.64,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2021,
+        "population": 2375,
+        "population_growth": -24,
+        "growth_rate": -1,
+        "urbanization_rate": 63.36,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2022,
+        "population": 2348,
+        "population_growth": -27,
+        "growth_rate": -1.14,
+        "urbanization_rate": 63.72,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2023,
+        "population": 2339,
+        "population_growth": -9,
+        "growth_rate": -0.38,
+        "urbanization_rate": 64.73,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 2317,
+        "population_growth": -22,
+        "growth_rate": -0.94,
+        "urbanization_rate": 65.78,
+        "population_change_type": "decrease"
+      }
+    ]
+  },
+  {
+    "province": "黑龙江",
+    "region": "东北",
+    "coordinate": [
+      126.63,
+      45.75
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 3529,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 60.47,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 3463,
+        "population_growth": -66,
+        "growth_rate": -1.87,
+        "urbanization_rate": 61.09,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2017,
+        "population": 3399,
+        "population_growth": -64,
+        "growth_rate": -1.85,
+        "urbanization_rate": 61.9,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2018,
+        "population": 3327,
+        "population_growth": -72,
+        "growth_rate": -2.12,
+        "urbanization_rate": 63.46,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2019,
+        "population": 3255,
+        "population_growth": -72,
+        "growth_rate": -2.16,
+        "urbanization_rate": 64.62,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2020,
+        "population": 3171,
+        "population_growth": -84,
+        "growth_rate": -2.58,
+        "urbanization_rate": 65.61,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2021,
+        "population": 3125,
+        "population_growth": -46,
+        "growth_rate": -1.45,
+        "urbanization_rate": 65.69,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2022,
+        "population": 3099,
+        "population_growth": -26,
+        "growth_rate": -0.83,
+        "urbanization_rate": 66.21,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2023,
+        "population": 3062,
+        "population_growth": -37,
+        "growth_rate": -1.19,
+        "urbanization_rate": 67.11,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 3029,
+        "population_growth": -33,
+        "growth_rate": -1.08,
+        "urbanization_rate": 68.05,
+        "population_change_type": "decrease"
+      }
+    ]
+  },
+  {
+    "province": "上海",
+    "region": "东部",
+    "coordinate": [
+      121.47,
+      31.23
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 2458,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 88.53,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 2467,
+        "population_growth": 9,
+        "growth_rate": 0.37,
+        "urbanization_rate": 89,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 2466,
+        "population_growth": -1,
+        "growth_rate": -0.04,
+        "urbanization_rate": 89.1,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2018,
+        "population": 2475,
+        "population_growth": 9,
+        "growth_rate": 0.36,
+        "urbanization_rate": 89.13,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 2481,
+        "population_growth": 6,
+        "growth_rate": 0.24,
+        "urbanization_rate": 89.22,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 2488,
+        "population_growth": 7,
+        "growth_rate": 0.28,
+        "urbanization_rate": 89.3,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 2489,
+        "population_growth": 1,
+        "growth_rate": 0.04,
+        "urbanization_rate": 89.3,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2022,
+        "population": 2475,
+        "population_growth": -14,
+        "growth_rate": -0.56,
+        "urbanization_rate": 89.33,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2023,
+        "population": 2487,
+        "population_growth": 12,
+        "growth_rate": 0.48,
+        "urbanization_rate": 89.46,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2024,
+        "population": 2480,
+        "population_growth": -7,
+        "growth_rate": -0.28,
+        "urbanization_rate": 89.85,
+        "population_change_type": "decrease"
+      }
+    ]
+  },
+  {
+    "province": "江苏",
+    "region": "东部",
+    "coordinate": [
+      118.78,
+      32.04
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 8315,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 67.49,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 8381,
+        "population_growth": 66,
+        "growth_rate": 0.79,
+        "urbanization_rate": 68.93,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 8423,
+        "population_growth": 42,
+        "growth_rate": 0.5,
+        "urbanization_rate": 70.18,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 8446,
+        "population_growth": 23,
+        "growth_rate": 0.27,
+        "urbanization_rate": 71.19,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 8469,
+        "population_growth": 23,
+        "growth_rate": 0.27,
+        "urbanization_rate": 72.47,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 8477,
+        "population_growth": 8,
+        "growth_rate": 0.09,
+        "urbanization_rate": 73.44,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 8505,
+        "population_growth": 28,
+        "growth_rate": 0.33,
+        "urbanization_rate": 73.94,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2022,
+        "population": 8515,
+        "population_growth": 10,
+        "growth_rate": 0.12,
+        "urbanization_rate": 74.42,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2023,
+        "population": 8526,
+        "population_growth": 11,
+        "growth_rate": 0.13,
+        "urbanization_rate": 75.04,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2024,
+        "population": 8526,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 75.53,
+        "population_change_type": "flat"
+      }
+    ]
+  },
+  {
+    "province": "浙江",
+    "region": "东部",
+    "coordinate": [
+      120.15,
+      30.28
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 5985,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 66.32,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 6072,
+        "population_growth": 87,
+        "growth_rate": 1.45,
+        "urbanization_rate": 67.72,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 6170,
+        "population_growth": 98,
+        "growth_rate": 1.61,
+        "urbanization_rate": 68.91,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 6273,
+        "population_growth": 103,
+        "growth_rate": 1.67,
+        "urbanization_rate": 70.02,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 6375,
+        "population_growth": 102,
+        "growth_rate": 1.63,
+        "urbanization_rate": 71.58,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 6468,
+        "population_growth": 93,
+        "growth_rate": 1.46,
+        "urbanization_rate": 72.17,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 6540,
+        "population_growth": 72,
+        "growth_rate": 1.11,
+        "urbanization_rate": 72.66,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2022,
+        "population": 6577,
+        "population_growth": 37,
+        "growth_rate": 0.57,
+        "urbanization_rate": 73.38,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2023,
+        "population": 6627,
+        "population_growth": 50,
+        "growth_rate": 0.76,
+        "urbanization_rate": 74.23,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2024,
+        "population": 6670,
+        "population_growth": 43,
+        "growth_rate": 0.65,
+        "urbanization_rate": 75.46,
+        "population_change_type": "increase"
+      }
+    ]
+  },
+  {
+    "province": "安徽",
+    "region": "中部",
+    "coordinate": [
+      117.28,
+      31.86
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 6011,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 50.97,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 6033,
+        "population_growth": 22,
+        "growth_rate": 0.37,
+        "urbanization_rate": 52.62,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 6057,
+        "population_growth": 24,
+        "growth_rate": 0.4,
+        "urbanization_rate": 54.29,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 6076,
+        "population_growth": 19,
+        "growth_rate": 0.31,
+        "urbanization_rate": 55.65,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 6092,
+        "population_growth": 16,
+        "growth_rate": 0.26,
+        "urbanization_rate": 57.02,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 6105,
+        "population_growth": 13,
+        "growth_rate": 0.21,
+        "urbanization_rate": 58.33,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 6113,
+        "population_growth": 8,
+        "growth_rate": 0.13,
+        "urbanization_rate": 59.39,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2022,
+        "population": 6127,
+        "population_growth": 14,
+        "growth_rate": 0.23,
+        "urbanization_rate": 60.15,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2023,
+        "population": 6121,
+        "population_growth": -6,
+        "growth_rate": -0.1,
+        "urbanization_rate": 61.51,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 6123,
+        "population_growth": 2,
+        "growth_rate": 0.03,
+        "urbanization_rate": 62.57,
+        "population_change_type": "increase"
+      }
+    ]
+  },
+  {
+    "province": "福建",
+    "region": "东部",
+    "coordinate": [
+      119.3,
+      26.08
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 3984,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 63.22,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 4016,
+        "population_growth": 32,
+        "growth_rate": 0.8,
+        "urbanization_rate": 64.39,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 4065,
+        "population_growth": 49,
+        "growth_rate": 1.22,
+        "urbanization_rate": 65.78,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 4104,
+        "population_growth": 39,
+        "growth_rate": 0.96,
+        "urbanization_rate": 66.98,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 4137,
+        "population_growth": 33,
+        "growth_rate": 0.8,
+        "urbanization_rate": 67.87,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 4161,
+        "population_growth": 24,
+        "growth_rate": 0.58,
+        "urbanization_rate": 68.75,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 4187,
+        "population_growth": 26,
+        "growth_rate": 0.62,
+        "urbanization_rate": 69.7,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2022,
+        "population": 4188,
+        "population_growth": 1,
+        "growth_rate": 0.02,
+        "urbanization_rate": 70.11,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2023,
+        "population": 4183,
+        "population_growth": -5,
+        "growth_rate": -0.12,
+        "urbanization_rate": 71.04,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 4193,
+        "population_growth": 10,
+        "growth_rate": 0.24,
+        "urbanization_rate": 71.8,
+        "population_change_type": "increase"
+      }
+    ]
+  },
+  {
+    "province": "江西",
+    "region": "中部",
+    "coordinate": [
+      115.89,
+      28.68
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 4485,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 52.3,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 4496,
+        "population_growth": 11,
+        "growth_rate": 0.25,
+        "urbanization_rate": 53.99,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 4511,
+        "population_growth": 15,
+        "growth_rate": 0.33,
+        "urbanization_rate": 55.7,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 4513,
+        "population_growth": 2,
+        "growth_rate": 0.04,
+        "urbanization_rate": 57.34,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 4516,
+        "population_growth": 3,
+        "growth_rate": 0.07,
+        "urbanization_rate": 59.07,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 4519,
+        "population_growth": 3,
+        "growth_rate": 0.07,
+        "urbanization_rate": 60.44,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 4517,
+        "population_growth": -2,
+        "growth_rate": -0.04,
+        "urbanization_rate": 61.46,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2022,
+        "population": 4528,
+        "population_growth": 11,
+        "growth_rate": 0.24,
+        "urbanization_rate": 62.07,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2023,
+        "population": 4515,
+        "population_growth": -13,
+        "growth_rate": -0.29,
+        "urbanization_rate": 63.13,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 4502,
+        "population_growth": -13,
+        "growth_rate": -0.29,
+        "urbanization_rate": 63.77,
+        "population_change_type": "decrease"
+      }
+    ]
+  },
+  {
+    "province": "山东",
+    "region": "东部",
+    "coordinate": [
+      117,
+      36.65
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 9866,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 56.97,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 9973,
+        "population_growth": 107,
+        "growth_rate": 1.08,
+        "urbanization_rate": 59.13,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 10033,
+        "population_growth": 60,
+        "growth_rate": 0.6,
+        "urbanization_rate": 60.79,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 10077,
+        "population_growth": 44,
+        "growth_rate": 0.44,
+        "urbanization_rate": 61.46,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 10106,
+        "population_growth": 29,
+        "growth_rate": 0.29,
+        "urbanization_rate": 61.86,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 10165,
+        "population_growth": 59,
+        "growth_rate": 0.58,
+        "urbanization_rate": 63.05,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 10170,
+        "population_growth": 5,
+        "growth_rate": 0.05,
+        "urbanization_rate": 63.94,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2022,
+        "population": 10163,
+        "population_growth": -7,
+        "growth_rate": -0.07,
+        "urbanization_rate": 64.54,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2023,
+        "population": 10123,
+        "population_growth": -40,
+        "growth_rate": -0.39,
+        "urbanization_rate": 65.53,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 10080,
+        "population_growth": -43,
+        "growth_rate": -0.42,
+        "urbanization_rate": 66.48,
+        "population_change_type": "decrease"
+      }
+    ]
+  },
+  {
+    "province": "河南",
+    "region": "中部",
+    "coordinate": [
+      113.62,
+      34.75
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 9701,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 47.02,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 9778,
+        "population_growth": 77,
+        "growth_rate": 0.79,
+        "urbanization_rate": 48.78,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 9829,
+        "population_growth": 51,
+        "growth_rate": 0.52,
+        "urbanization_rate": 50.56,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 9864,
+        "population_growth": 35,
+        "growth_rate": 0.36,
+        "urbanization_rate": 52.24,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 9901,
+        "population_growth": 37,
+        "growth_rate": 0.38,
+        "urbanization_rate": 54.01,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 9941,
+        "population_growth": 40,
+        "growth_rate": 0.4,
+        "urbanization_rate": 55.43,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 9883,
+        "population_growth": -58,
+        "growth_rate": -0.58,
+        "urbanization_rate": 56.45,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2022,
+        "population": 9872,
+        "population_growth": -11,
+        "growth_rate": -0.11,
+        "urbanization_rate": 57.07,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2023,
+        "population": 9815,
+        "population_growth": -57,
+        "growth_rate": -0.58,
+        "urbanization_rate": 58.08,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 9785,
+        "population_growth": -30,
+        "growth_rate": -0.31,
+        "urbanization_rate": 59.22,
+        "population_change_type": "decrease"
+      }
+    ]
+  },
+  {
+    "province": "湖北",
+    "region": "中部",
+    "coordinate": [
+      114.3,
+      30.6
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 5850,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 57.18,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 5885,
+        "population_growth": 35,
+        "growth_rate": 0.6,
+        "urbanization_rate": 58.57,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 5904,
+        "population_growth": 19,
+        "growth_rate": 0.32,
+        "urbanization_rate": 59.88,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 5917,
+        "population_growth": 13,
+        "growth_rate": 0.22,
+        "urbanization_rate": 61,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 5927,
+        "population_growth": 10,
+        "growth_rate": 0.17,
+        "urbanization_rate": 61.83,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 5745,
+        "population_growth": -182,
+        "growth_rate": -3.07,
+        "urbanization_rate": 62.89,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2021,
+        "population": 5830,
+        "population_growth": 85,
+        "growth_rate": 1.48,
+        "urbanization_rate": 64.09,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2022,
+        "population": 5844,
+        "population_growth": 14,
+        "growth_rate": 0.24,
+        "urbanization_rate": 64.67,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2023,
+        "population": 5838,
+        "population_growth": -6,
+        "growth_rate": -0.1,
+        "urbanization_rate": 65.47,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 5834,
+        "population_growth": -4,
+        "growth_rate": -0.07,
+        "urbanization_rate": 66.35,
+        "population_change_type": "decrease"
+      }
+    ]
+  },
+  {
+    "province": "湖南",
+    "region": "中部",
+    "coordinate": [
+      112.98,
+      28.2
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 6615,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 50.79,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 6625,
+        "population_growth": 10,
+        "growth_rate": 0.15,
+        "urbanization_rate": 52.7,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 6633,
+        "population_growth": 8,
+        "growth_rate": 0.12,
+        "urbanization_rate": 54.62,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 6635,
+        "population_growth": 2,
+        "growth_rate": 0.03,
+        "urbanization_rate": 56.09,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 6640,
+        "population_growth": 5,
+        "growth_rate": 0.08,
+        "urbanization_rate": 57.45,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 6645,
+        "population_growth": 5,
+        "growth_rate": 0.08,
+        "urbanization_rate": 58.76,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 6622,
+        "population_growth": -23,
+        "growth_rate": -0.35,
+        "urbanization_rate": 59.71,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2022,
+        "population": 6604,
+        "population_growth": -18,
+        "growth_rate": -0.27,
+        "urbanization_rate": 60.31,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2023,
+        "population": 6568,
+        "population_growth": -36,
+        "growth_rate": -0.55,
+        "urbanization_rate": 61.16,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 6539,
+        "population_growth": -29,
+        "growth_rate": -0.44,
+        "urbanization_rate": 62.07,
+        "population_change_type": "decrease"
+      }
+    ]
+  },
+  {
+    "province": "广东",
+    "region": "东部",
+    "coordinate": [
+      113.27,
+      23.13
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 11678,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 69.51,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 11908,
+        "population_growth": 230,
+        "growth_rate": 1.97,
+        "urbanization_rate": 70.15,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 12141,
+        "population_growth": 233,
+        "growth_rate": 1.96,
+        "urbanization_rate": 70.74,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 12348,
+        "population_growth": 207,
+        "growth_rate": 1.7,
+        "urbanization_rate": 71.81,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 12489,
+        "population_growth": 141,
+        "growth_rate": 1.14,
+        "urbanization_rate": 72.65,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 12624,
+        "population_growth": 135,
+        "growth_rate": 1.08,
+        "urbanization_rate": 74.15,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 12684,
+        "population_growth": 60,
+        "growth_rate": 0.48,
+        "urbanization_rate": 74.63,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2022,
+        "population": 12657,
+        "population_growth": -27,
+        "growth_rate": -0.21,
+        "urbanization_rate": 74.79,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2023,
+        "population": 12706,
+        "population_growth": 49,
+        "growth_rate": 0.39,
+        "urbanization_rate": 75.42,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2024,
+        "population": 12780,
+        "population_growth": 74,
+        "growth_rate": 0.58,
+        "urbanization_rate": 75.91,
+        "population_change_type": "increase"
+      }
+    ]
+  },
+  {
+    "province": "广西",
+    "region": "西部",
+    "coordinate": [
+      108.32,
+      22.82
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 4811,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 47.99,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 4857,
+        "population_growth": 46,
+        "growth_rate": 0.96,
+        "urbanization_rate": 49.24,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 4907,
+        "population_growth": 50,
+        "growth_rate": 1.03,
+        "urbanization_rate": 50.59,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 4947,
+        "population_growth": 40,
+        "growth_rate": 0.82,
+        "urbanization_rate": 51.82,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 4982,
+        "population_growth": 35,
+        "growth_rate": 0.71,
+        "urbanization_rate": 52.98,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 5019,
+        "population_growth": 37,
+        "growth_rate": 0.74,
+        "urbanization_rate": 54.2,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 5037,
+        "population_growth": 18,
+        "growth_rate": 0.36,
+        "urbanization_rate": 55.08,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2022,
+        "population": 5047,
+        "population_growth": 10,
+        "growth_rate": 0.2,
+        "urbanization_rate": 55.65,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2023,
+        "population": 5027,
+        "population_growth": -20,
+        "growth_rate": -0.4,
+        "urbanization_rate": 56.78,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 5013,
+        "population_growth": -14,
+        "growth_rate": -0.28,
+        "urbanization_rate": 57.39,
+        "population_change_type": "decrease"
+      }
+    ]
+  },
+  {
+    "province": "海南",
+    "region": "东部",
+    "coordinate": [
+      110.35,
+      20.02
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 945,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 54.91,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 957,
+        "population_growth": 12,
+        "growth_rate": 1.27,
+        "urbanization_rate": 56.7,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 972,
+        "population_growth": 15,
+        "growth_rate": 1.57,
+        "urbanization_rate": 58.04,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 982,
+        "population_growth": 10,
+        "growth_rate": 1.03,
+        "urbanization_rate": 59.13,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 995,
+        "population_growth": 13,
+        "growth_rate": 1.32,
+        "urbanization_rate": 59.37,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 1012,
+        "population_growth": 17,
+        "growth_rate": 1.71,
+        "urbanization_rate": 60.27,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 1020,
+        "population_growth": 8,
+        "growth_rate": 0.79,
+        "urbanization_rate": 60.97,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2022,
+        "population": 1027,
+        "population_growth": 7,
+        "growth_rate": 0.69,
+        "urbanization_rate": 61.49,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2023,
+        "population": 1043,
+        "population_growth": 16,
+        "growth_rate": 1.56,
+        "urbanization_rate": 62.46,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2024,
+        "population": 1048,
+        "population_growth": 5,
+        "growth_rate": 0.48,
+        "urbanization_rate": 63.08,
+        "population_change_type": "increase"
+      }
+    ]
+  },
+  {
+    "province": "重庆",
+    "region": "西部",
+    "coordinate": [
+      106.55,
+      29.56
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 3070,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 61.47,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 3110,
+        "population_growth": 40,
+        "growth_rate": 1.3,
+        "urbanization_rate": 63.33,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 3144,
+        "population_growth": 34,
+        "growth_rate": 1.09,
+        "urbanization_rate": 65,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 3163,
+        "population_growth": 19,
+        "growth_rate": 0.6,
+        "urbanization_rate": 66.61,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 3188,
+        "population_growth": 25,
+        "growth_rate": 0.79,
+        "urbanization_rate": 68.24,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 3209,
+        "population_growth": 21,
+        "growth_rate": 0.66,
+        "urbanization_rate": 69.46,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 3212,
+        "population_growth": 3,
+        "growth_rate": 0.09,
+        "urbanization_rate": 70.32,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2022,
+        "population": 3213,
+        "population_growth": 1,
+        "growth_rate": 0.03,
+        "urbanization_rate": 70.96,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2023,
+        "population": 3191,
+        "population_growth": -22,
+        "growth_rate": -0.68,
+        "urbanization_rate": 71.67,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 3190,
+        "population_growth": -1,
+        "growth_rate": -0.03,
+        "urbanization_rate": 72.14,
+        "population_change_type": "decrease"
+      }
+    ]
+  },
+  {
+    "province": "四川",
+    "region": "西部",
+    "coordinate": [
+      104.06,
+      30.67
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 8196,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 48.27,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 8251,
+        "population_growth": 55,
+        "growth_rate": 0.67,
+        "urbanization_rate": 50,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 8289,
+        "population_growth": 38,
+        "growth_rate": 0.46,
+        "urbanization_rate": 51.78,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 8321,
+        "population_growth": 32,
+        "growth_rate": 0.39,
+        "urbanization_rate": 53.5,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 8351,
+        "population_growth": 30,
+        "growth_rate": 0.36,
+        "urbanization_rate": 55.36,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 8371,
+        "population_growth": 20,
+        "growth_rate": 0.24,
+        "urbanization_rate": 56.73,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 8372,
+        "population_growth": 1,
+        "growth_rate": 0.01,
+        "urbanization_rate": 57.82,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2022,
+        "population": 8374,
+        "population_growth": 2,
+        "growth_rate": 0.02,
+        "urbanization_rate": 58.35,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2023,
+        "population": 8368,
+        "population_growth": -6,
+        "growth_rate": -0.07,
+        "urbanization_rate": 59.49,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 8364,
+        "population_growth": -4,
+        "growth_rate": -0.05,
+        "urbanization_rate": 60.1,
+        "population_change_type": "decrease"
+      }
+    ]
+  },
+  {
+    "province": "贵州",
+    "region": "西部",
+    "coordinate": [
+      106.63,
+      26.65
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 3708,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 42.96,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 3758,
+        "population_growth": 50,
+        "growth_rate": 1.35,
+        "urbanization_rate": 45.56,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 3803,
+        "population_growth": 45,
+        "growth_rate": 1.2,
+        "urbanization_rate": 47.76,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 3822,
+        "population_growth": 19,
+        "growth_rate": 0.5,
+        "urbanization_rate": 49.54,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 3848,
+        "population_growth": 26,
+        "growth_rate": 0.68,
+        "urbanization_rate": 51.48,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 3858,
+        "population_growth": 10,
+        "growth_rate": 0.26,
+        "urbanization_rate": 53.15,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 3852,
+        "population_growth": -6,
+        "growth_rate": -0.16,
+        "urbanization_rate": 54.33,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2022,
+        "population": 3856,
+        "population_growth": 4,
+        "growth_rate": 0.1,
+        "urbanization_rate": 54.81,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2023,
+        "population": 3865,
+        "population_growth": 9,
+        "growth_rate": 0.23,
+        "urbanization_rate": 55.94,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2024,
+        "population": 3860,
+        "population_growth": -5,
+        "growth_rate": -0.13,
+        "urbanization_rate": 56.65,
+        "population_change_type": "decrease"
+      }
+    ]
+  },
+  {
+    "province": "云南",
+    "region": "西部",
+    "coordinate": [
+      102.71,
+      25.04
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 4663,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 42.93,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 4677,
+        "population_growth": 14,
+        "growth_rate": 0.3,
+        "urbanization_rate": 44.64,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 4693,
+        "population_growth": 16,
+        "growth_rate": 0.34,
+        "urbanization_rate": 46.29,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 4703,
+        "population_growth": 10,
+        "growth_rate": 0.21,
+        "urbanization_rate": 47.44,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 4714,
+        "population_growth": 11,
+        "growth_rate": 0.23,
+        "urbanization_rate": 48.67,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 4722,
+        "population_growth": 8,
+        "growth_rate": 0.17,
+        "urbanization_rate": 50.05,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 4690,
+        "population_growth": -32,
+        "growth_rate": -0.68,
+        "urbanization_rate": 51.05,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2022,
+        "population": 4693,
+        "population_growth": 3,
+        "growth_rate": 0.06,
+        "urbanization_rate": 51.72,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2023,
+        "population": 4673,
+        "population_growth": -20,
+        "growth_rate": -0.43,
+        "urbanization_rate": 52.92,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 4655,
+        "population_growth": -18,
+        "growth_rate": -0.39,
+        "urbanization_rate": 54.11,
+        "population_change_type": "decrease"
+      }
+    ]
+  },
+  {
+    "province": "西藏",
+    "region": "西部",
+    "coordinate": [
+      91.13,
+      29.65
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 330,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 28.87,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 340,
+        "population_growth": 10,
+        "growth_rate": 3.03,
+        "urbanization_rate": 31.57,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 349,
+        "population_growth": 9,
+        "growth_rate": 2.65,
+        "urbanization_rate": 33.38,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 354,
+        "population_growth": 5,
+        "growth_rate": 1.43,
+        "urbanization_rate": 33.8,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 361,
+        "population_growth": 7,
+        "growth_rate": 1.98,
+        "urbanization_rate": 34.51,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 366,
+        "population_growth": 5,
+        "growth_rate": 1.39,
+        "urbanization_rate": 35.73,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 366,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 36.61,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2022,
+        "population": 364,
+        "population_growth": -2,
+        "growth_rate": -0.55,
+        "urbanization_rate": 37.39,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2023,
+        "population": 365,
+        "population_growth": 1,
+        "growth_rate": 0.27,
+        "urbanization_rate": 38.88,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2024,
+        "population": 370,
+        "population_growth": 5,
+        "growth_rate": 1.37,
+        "urbanization_rate": 39.68,
+        "population_change_type": "increase"
+      }
+    ]
+  },
+  {
+    "province": "陕西",
+    "region": "西部",
+    "coordinate": [
+      108.95,
+      34.27
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 3846,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 54.74,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 3874,
+        "population_growth": 28,
+        "growth_rate": 0.73,
+        "urbanization_rate": 56.39,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 3904,
+        "population_growth": 30,
+        "growth_rate": 0.77,
+        "urbanization_rate": 58.07,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 3931,
+        "population_growth": 27,
+        "growth_rate": 0.69,
+        "urbanization_rate": 59.65,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 3944,
+        "population_growth": 13,
+        "growth_rate": 0.33,
+        "urbanization_rate": 61.28,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 3955,
+        "population_growth": 11,
+        "growth_rate": 0.28,
+        "urbanization_rate": 62.66,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 3954,
+        "population_growth": -1,
+        "growth_rate": -0.03,
+        "urbanization_rate": 63.63,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2022,
+        "population": 3956,
+        "population_growth": 2,
+        "growth_rate": 0.05,
+        "urbanization_rate": 64.02,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2023,
+        "population": 3952,
+        "population_growth": -4,
+        "growth_rate": -0.1,
+        "urbanization_rate": 65.16,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 3953,
+        "population_growth": 1,
+        "growth_rate": 0.03,
+        "urbanization_rate": 66.14,
+        "population_change_type": "increase"
+      }
+    ]
+  },
+  {
+    "province": "甘肃",
+    "region": "西部",
+    "coordinate": [
+      103.82,
+      36.06
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 2523,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 44.24,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 2520,
+        "population_growth": -3,
+        "growth_rate": -0.12,
+        "urbanization_rate": 46.07,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2017,
+        "population": 2522,
+        "population_growth": 2,
+        "growth_rate": 0.08,
+        "urbanization_rate": 48.12,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 2515,
+        "population_growth": -7,
+        "growth_rate": -0.28,
+        "urbanization_rate": 49.69,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2019,
+        "population": 2509,
+        "population_growth": -6,
+        "growth_rate": -0.24,
+        "urbanization_rate": 50.7,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2020,
+        "population": 2501,
+        "population_growth": -8,
+        "growth_rate": -0.32,
+        "urbanization_rate": 52.23,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2021,
+        "population": 2490,
+        "population_growth": -11,
+        "growth_rate": -0.44,
+        "urbanization_rate": 53.33,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2022,
+        "population": 2492,
+        "population_growth": 2,
+        "growth_rate": 0.08,
+        "urbanization_rate": 54.19,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2023,
+        "population": 2465,
+        "population_growth": -27,
+        "growth_rate": -1.08,
+        "urbanization_rate": 55.49,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 2458,
+        "population_growth": -7,
+        "growth_rate": -0.28,
+        "urbanization_rate": 56.83,
+        "population_change_type": "decrease"
+      }
+    ]
+  },
+  {
+    "province": "青海",
+    "region": "西部",
+    "coordinate": [
+      101.78,
+      36.62
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 577,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 51.67,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 582,
+        "population_growth": 5,
+        "growth_rate": 0.87,
+        "urbanization_rate": 53.55,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 586,
+        "population_growth": 4,
+        "growth_rate": 0.69,
+        "urbanization_rate": 55.45,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 587,
+        "population_growth": 1,
+        "growth_rate": 0.17,
+        "urbanization_rate": 57.27,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 590,
+        "population_growth": 3,
+        "growth_rate": 0.51,
+        "urbanization_rate": 58.78,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 593,
+        "population_growth": 3,
+        "growth_rate": 0.51,
+        "urbanization_rate": 60.08,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 594,
+        "population_growth": 1,
+        "growth_rate": 0.17,
+        "urbanization_rate": 61.02,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2022,
+        "population": 595,
+        "population_growth": 1,
+        "growth_rate": 0.17,
+        "urbanization_rate": 61.43,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2023,
+        "population": 594,
+        "population_growth": -1,
+        "growth_rate": -0.17,
+        "urbanization_rate": 62.8,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2024,
+        "population": 593,
+        "population_growth": -1,
+        "growth_rate": -0.17,
+        "urbanization_rate": 63.86,
+        "population_change_type": "decrease"
+      }
+    ]
+  },
+  {
+    "province": "宁夏",
+    "region": "西部",
+    "coordinate": [
+      106.23,
+      38.48
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 684,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 56.98,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 695,
+        "population_growth": 11,
+        "growth_rate": 1.61,
+        "urbanization_rate": 58.74,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 705,
+        "population_growth": 10,
+        "growth_rate": 1.44,
+        "urbanization_rate": 60.95,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 710,
+        "population_growth": 5,
+        "growth_rate": 0.71,
+        "urbanization_rate": 62.15,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 717,
+        "population_growth": 7,
+        "growth_rate": 0.99,
+        "urbanization_rate": 63.63,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 721,
+        "population_growth": 4,
+        "growth_rate": 0.56,
+        "urbanization_rate": 64.96,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 725,
+        "population_growth": 4,
+        "growth_rate": 0.55,
+        "urbanization_rate": 66.04,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2022,
+        "population": 728,
+        "population_growth": 3,
+        "growth_rate": 0.41,
+        "urbanization_rate": 66.34,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2023,
+        "population": 729,
+        "population_growth": 1,
+        "growth_rate": 0.14,
+        "urbanization_rate": 67.31,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2024,
+        "population": 729,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 68.22,
+        "population_change_type": "flat"
+      }
+    ]
+  },
+  {
+    "province": "新疆",
+    "region": "西部",
+    "coordinate": [
+      87.62,
+      43.82
+    ],
+    "series": [
+      {
+        "year": 2015,
+        "population": 2385,
+        "population_growth": 0,
+        "growth_rate": 0,
+        "urbanization_rate": 48.78,
+        "population_change_type": "flat"
+      },
+      {
+        "year": 2016,
+        "population": 2428,
+        "population_growth": 43,
+        "growth_rate": 1.8,
+        "urbanization_rate": 50.42,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2017,
+        "population": 2480,
+        "population_growth": 52,
+        "growth_rate": 2.14,
+        "urbanization_rate": 51.9,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2018,
+        "population": 2520,
+        "population_growth": 40,
+        "growth_rate": 1.61,
+        "urbanization_rate": 54.01,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2019,
+        "population": 2559,
+        "population_growth": 39,
+        "growth_rate": 1.55,
+        "urbanization_rate": 55.51,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2020,
+        "population": 2590,
+        "population_growth": 31,
+        "growth_rate": 1.21,
+        "urbanization_rate": 56.53,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2021,
+        "population": 2589,
+        "population_growth": -1,
+        "growth_rate": -0.04,
+        "urbanization_rate": 57.26,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2022,
+        "population": 2587,
+        "population_growth": -2,
+        "growth_rate": -0.08,
+        "urbanization_rate": 57.89,
+        "population_change_type": "decrease"
+      },
+      {
+        "year": 2023,
+        "population": 2598,
+        "population_growth": 11,
+        "growth_rate": 0.43,
+        "urbanization_rate": 59.24,
+        "population_change_type": "increase"
+      },
+      {
+        "year": 2024,
+        "population": 2623,
+        "population_growth": 25,
+        "growth_rate": 0.96,
+        "urbanization_rate": 60.36,
+        "population_change_type": "increase"
+      }
+    ]
+  }
+]

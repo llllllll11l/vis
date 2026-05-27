@@ -1,0 +1,4 @@
+interface:
+  display_name: "Debugging"
+  short_description: "Debug frontend and chart issues"
+  default_prompt: "Use $debugging to diagnose and fix a frontend or chart issue in this Vue/Vite project."

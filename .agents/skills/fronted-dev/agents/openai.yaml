@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fronted Dev"
+  short_description: "Build Vue and ECharts UI work"
+  default_prompt: "Use $fronted-dev to implement a Vue/Vite/ECharts frontend change in this project."
