@@ -25,7 +25,7 @@ It shows changes in House Price and Population in recent 20 or 30 years, as well
 - fronted-dev: use for developing(creating, editing) component, UI, Vue, JavaScript and so on.
 
 ## Frontend Prototypes
-The project contains four pages. Their .html web page prototypes are in `page prototypes/`. The later development should base on these files.
+The project contains four pages. Their .html web page prototypes are in `/src/prototypes/`. The later development should base on these files.
 
 ## Project Documents
 Refer to the relevant documents under `docs/` when developing:
