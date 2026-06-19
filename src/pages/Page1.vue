@@ -49,6 +49,26 @@ const currentMapTitle = computed(() => (mapMode.value === 'house' ? '房价-人�
 const currentMapSubtitle = computed(() =>
   mapMode.value === 'house' ? '底色为房价指数，圆点为人口增减规模' : '底色表示人口增减，弧线表示趋势性集聚方向'
 )
+const yearTrendDots = computed(() => {
+  const houseAnnual = getProvinceHouseAnnual(metric.value)
+  const dots = years.value.map((year) => {
+    const values = [...houseAnnual.byProvince.values()]
+      .map((series) => series.find((item) => item.year === year)?.annual_growth)
+      .filter((value) => value !== undefined)
+    return {
+      year,
+      value: Number(average(values).toFixed(2))
+    }
+  })
+  const maxAbs = Math.max(...dots.map((item) => Math.abs(item.value)), 1)
+
+  return dots.map((item) => ({
+    ...item,
+    direction: getTrendDirection(item.value),
+    size: getTrendDotSize(item.value, maxAbs),
+    label: `${item.year}年全国${selectedMetricLabel.value}平均涨幅 ${formatPct(item.value)}`
+  }))
+})
 
 const currentData = computed(() =>
   getPopulationByYear(selectedYear.value).map((item) => {
@@ -355,6 +375,16 @@ function buildTrendLines(data) {
   })
 }
 
+function getTrendDirection(value) {
+  if (value > 0) return 'increase'
+  if (value < 0) return 'decrease'
+  return 'flat'
+}
+
+function getTrendDotSize(value, maxAbs) {
+  return `${Math.round(10 + (Math.abs(value) / maxAbs) * 12)}px`
+}
+
 function updateTrendChart() {
   if (!trendChart) return
 
@@ -602,14 +632,17 @@ onBeforeUnmount(() => {
           <span>{{ selectedYear }}</span>
           <div class="year-dots" aria-label="年份选择">
             <button
-              v-for="year in years"
-              :key="year"
+              v-for="item in yearTrendDots"
+              :key="item.year"
               type="button"
-              :class="{ active: selectedYear === year }"
-              @click="selectedYear = year"
+              :class="['trend-dot', item.direction, { active: selectedYear === item.year }]"
+              :style="{ '--dot-size': item.size }"
+              :title="item.label"
+              :aria-label="item.label"
+              @click="selectedYear = item.year"
             >
               <i></i>
-              <small>{{ year }}</small>
+              <small>{{ item.year }}</small>
             </button>
           </div>
         </label>
@@ -764,6 +797,7 @@ onBeforeUnmount(() => {
   display: grid;
   place-items: center;
   gap: 3px;
+  min-height: 34px;
   min-width: 0;
   padding: 0;
   border: 0;
@@ -772,11 +806,17 @@ onBeforeUnmount(() => {
 }
 
 .year-dots i {
-  width: 10px;
-  height: 10px;
-  border: 2px solid #cbd5e1;
+  width: var(--dot-size, 10px);
+  height: var(--dot-size, 10px);
+  border: 2px solid var(--dot-color, #cbd5e1);
   border-radius: 50%;
-  background: #ffffff;
+  background: var(--dot-color, #cbd5e1);
+  opacity: 0.82;
+  transition:
+    width 0.2s ease,
+    height 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
 }
 
 .year-dots small {
@@ -789,10 +829,23 @@ onBeforeUnmount(() => {
   color: #15616d;
 }
 
+.year-dots button.increase {
+  --dot-color: #16a34a;
+}
+
+.year-dots button.decrease {
+  --dot-color: #dc2626;
+}
+
+.year-dots button.flat {
+  --dot-color: #94a3b8;
+}
+
 .year-dots button.active i {
-  border-color: #15616d;
-  background: #15616d;
-  box-shadow: 0 0 0 4px rgba(21, 97, 109, 0.12);
+  opacity: 1;
+  box-shadow:
+    0 0 0 4px rgba(21, 97, 109, 0.14),
+    0 0 0 1px #ffffff inset;
 }
 
 .overview-grid {
